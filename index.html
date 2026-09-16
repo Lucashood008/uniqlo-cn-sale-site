@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#111111">
+    <meta name="description" content="优衣库中国大陆男装优惠浏览、筛选与价格记录。">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icons/app-icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./web/styles.css">
+    <title>优衣库男装优惠</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#products">跳到商品列表</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-mark" aria-hidden="true">优</div>
+        <div class="brand-copy">
+          <p class="eyebrow">UNIQLO CN SALE TRACKER</p>
+          <h1>男装优惠</h1>
+        </div>
+        <button class="header-action" id="favorites-toggle" type="button" aria-pressed="false">
+          <span aria-hidden="true">♡</span>
+          <span>收藏</span>
+          <strong id="favorite-count">0</strong>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="status-panel" aria-labelledby="status-title">
+        <div>
+          <p class="section-kicker">数据状态</p>
+          <h2 id="status-title">正在读取最新优惠…</h2>
+          <p class="muted" id="updated-at">请稍候</p>
+        </div>
+        <button class="secondary-button" id="refresh-button" type="button">
+          获取最新数据
+        </button>
+      </section>
+
+      <div class="notice hidden" id="status-notice" role="status"></div>
+
+      <section class="summary-grid" aria-label="优惠概览">
+        <article class="summary-card accent">
+          <span>达到门槛</span>
+          <strong id="summary-products">—</strong>
+          <small>款商品</small>
+        </article>
+        <article class="summary-card">
+          <span>最高优惠</span>
+          <strong id="summary-discount">—</strong>
+          <small>按初上市价计算</small>
+        </article>
+        <article class="summary-card">
+          <span>本次新增</span>
+          <strong id="summary-added">—</strong>
+          <small>条优惠记录</small>
+        </article>
+        <article class="summary-card">
+          <span>本次降价</span>
+          <strong id="summary-drops">—</strong>
+          <small>条价格记录</small>
+        </article>
+      </section>
+
+      <section class="hero-section" aria-labelledby="highlights-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">TOP DEALS</p>
+            <h2 id="highlights-title">高折扣商品</h2>
+          </div>
+          <p>当前筛选范围内按优惠幅度选取前9款</p>
+        </div>
+        <div class="highlight-grid" id="highlight-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="catalog-section" id="products" aria-labelledby="catalog-title">
+        <div class="section-heading catalog-heading">
+          <div>
+            <p class="section-kicker">CATALOG</p>
+            <h2 id="catalog-title">完整优惠清单</h2>
+          </div>
+          <p id="result-count">正在整理商品…</p>
+        </div>
+
+        <form class="filter-panel" id="filters">
+          <label class="search-field">
+            <span>搜索</span>
+            <input id="search-input" type="search" placeholder="商品名称或编号" autocomplete="off">
+          </label>
+          <label>
+            <span>优惠类别</span>
+            <select id="source-filter">
+              <option value="all">全部类别</option>
+              <option value="限时特优">限时特优</option>
+              <option value="超值精选">超值精选</option>
+            </select>
+          </label>
+          <label>
+            <span>最低优惠</span>
+            <select id="discount-filter">
+              <option value="40">40%及以上</option>
+              <option value="50">50%及以上</option>
+              <option value="60">60%及以上</option>
+              <option value="70">70%及以上</option>
+            </select>
+          </label>
+          <label>
+            <span>最高现价</span>
+            <select id="price-filter">
+              <option value="all">不限</option>
+              <option value="50">¥50以内</option>
+              <option value="100">¥100以内</option>
+              <option value="200">¥200以内</option>
+              <option value="500">¥500以内</option>
+            </select>
+          </label>
+          <label>
+            <span>排序</span>
+            <select id="sort-filter">
+              <option value="discount">优惠幅度最高</option>
+              <option value="price-asc">现价最低</option>
+              <option value="price-desc">现价最高</option>
+            </select>
+          </label>
+          <button class="clear-button" id="clear-filters" type="button">清空筛选</button>
+        </form>
+
+        <div class="active-filters" id="active-filters" aria-live="polite"></div>
+
+        <div class="desktop-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>优惠幅度</th>
+                <th>原价</th>
+                <th>现价</th>
+                <th>类别</th>
+                <th>性别</th>
+                <th><span class="visually-hidden">操作</span></th>
+              </tr>
+            </thead>
+            <tbody id="product-table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="mobile-product-list" id="mobile-product-list"></div>
+
+        <div class="empty-state hidden" id="empty-state">
+          <strong>没有符合当前条件的商品</strong>
+          <p>可以清空部分筛选条件后重新查看。</p>
+          <button class="secondary-button" type="button" data-clear-filters>清空筛选</button>
+        </div>
+
+        <button class="load-more hidden" id="load-more" type="button">加载更多</button>
+      </section>
+
+      <section class="data-note" aria-labelledby="data-note-title">
+        <p class="section-kicker">ABOUT THE DATA</p>
+        <h2 id="data-note-title">数据口径</h2>
+        <p>仅展示优惠幅度不低于40%的男装及男女同款。同一商品编号对应多个官网页面时归为一款，并在详情中保留各页面入口。</p>
+        <p>价格和低价判断只代表本项目实际观测记录；“本次未检出”不等同于停售、售罄或永久退出优惠。</p>
+        <p><a href="./latest.csv">下载完整采集记录（CSV）</a> · <a href="./LATEST.md">查看 Markdown 版本</a></p>
+      </section>
+    </main>
+
+    <dialog class="product-dialog" id="product-dialog">
+      <div class="dialog-head">
+        <div>
+          <p class="section-kicker">商品详情</p>
+          <h2 id="dialog-title">—</h2>
+        </div>
+        <button class="icon-button" id="dialog-close" type="button" aria-label="关闭详情">×</button>
+      </div>
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="./web/app.js"></script>
+  </body>
+</html>
