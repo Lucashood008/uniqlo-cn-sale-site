@@ -60,7 +60,12 @@
             <input id="search-input" type="search" placeholder="输入商品名称或编号" autocomplete="off">
           </label>
           <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-fields">筛选</button>
-          <div class="filter-fields" id="filter-fields">
+          <button class="filter-backdrop" id="filter-backdrop" type="button" tabindex="-1" aria-label="关闭筛选面板"></button>
+          <div class="filter-fields" id="filter-fields" aria-labelledby="filter-sheet-title">
+            <div class="filter-sheet-head">
+              <strong id="filter-sheet-title">筛选与排序</strong>
+              <button class="filter-close" id="filter-close" type="button" aria-label="关闭筛选面板">×</button>
+            </div>
             <label>
               <span>优惠类别</span>
               <select id="source-filter">
@@ -96,7 +101,10 @@
                 <option value="price-desc">现价最高</option>
               </select>
             </label>
-            <button class="clear-button" id="clear-filters" type="button">清空条件</button>
+            <div class="filter-sheet-actions">
+              <button class="clear-button" id="clear-filters" type="button">重置</button>
+              <button class="filter-apply" id="filter-apply" type="button">查看结果</button>
+            </div>
           </div>
         </form>
 

@@ -33,6 +33,10 @@ const elements = {
   discount: document.querySelector("#discount-filter"),
   empty: document.querySelector("#empty-state"),
   favoriteCount: document.querySelector("#favorite-count"),
+  filterApply: document.querySelector("#filter-apply"),
+  filterBackdrop: document.querySelector("#filter-backdrop"),
+  filterClose: document.querySelector("#filter-close"),
+  filterFields: document.querySelector("#filter-fields"),
   filterPanel: document.querySelector("#filters"),
   filterToggle: document.querySelector("#filter-toggle"),
   favoritesToggle: document.querySelector("#favorites-toggle"),
@@ -281,6 +285,7 @@ function renderHighlights() {
 function renderProducts() {
   const visible = state.filtered.slice(0, state.visibleCount);
   elements.resultCount.textContent = `找到 ${state.filtered.length} 款，当前显示 ${visible.length} 款`;
+  elements.filterApply.textContent = `查看 ${state.filtered.length} 款结果`;
   elements.tableBody.innerHTML = visible.map(tableRow).join("");
   elements.mobileList.innerHTML = visible.map(mobileCard).join("");
   elements.empty.classList.toggle("hidden", state.filtered.length !== 0);
@@ -343,6 +348,15 @@ function clearFilters() {
   elements.price.value = "all";
   elements.sort.value = "discount";
   applyFilters();
+}
+
+function setFilterPanelExpanded(expanded, { moveFocus = true } = {}) {
+  elements.filterToggle.setAttribute("aria-expanded", String(expanded));
+  elements.filterPanel.classList.toggle("is-expanded", expanded);
+  document.body.classList.toggle("filter-open", expanded);
+  if (!moveFocus) return;
+  if (expanded) elements.source.focus();
+  else elements.filterToggle.focus();
 }
 
 function removeFilter(key) {
@@ -565,8 +579,18 @@ elements.filterPanel.addEventListener("submit", (event) => {
 });
 elements.filterToggle.addEventListener("click", () => {
   const expanded = elements.filterToggle.getAttribute("aria-expanded") !== "true";
-  elements.filterToggle.setAttribute("aria-expanded", String(expanded));
-  elements.filterPanel.classList.toggle("is-expanded", expanded);
+  setFilterPanelExpanded(expanded);
+});
+elements.filterBackdrop.addEventListener("click", () => setFilterPanelExpanded(false));
+elements.filterClose.addEventListener("click", () => setFilterPanelExpanded(false));
+elements.filterApply.addEventListener("click", () => setFilterPanelExpanded(false));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && elements.filterPanel.classList.contains("is-expanded")) {
+    setFilterPanelExpanded(false);
+  }
+});
+window.matchMedia("(max-width: 680px)").addEventListener("change", (event) => {
+  if (!event.matches) setFilterPanelExpanded(false, { moveFocus: false });
 });
 elements.clearFilters.addEventListener("click", clearFilters);
 elements.refresh.addEventListener("click", () => loadData({ announce: true }));
