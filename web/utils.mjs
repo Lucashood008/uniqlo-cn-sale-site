@@ -36,15 +36,10 @@ export function groupProducts(products) {
       });
     }
     const entry = grouped.get(key);
-    const minimumPrices = [entry.current_min_price, product.current_min_price]
-      .map(Number).filter(Number.isFinite);
-    const maximumPrices = [entry.current_max_price, product.current_max_price, product.current_min_price]
-      .map(Number).filter(Number.isFinite);
-    const originalPrices = [entry.original_price, product.original_price]
-      .map(Number).filter(Number.isFinite);
-    if (minimumPrices.length) entry.current_min_price = Math.min(...minimumPrices);
-    if (maximumPrices.length) entry.current_max_price = Math.max(...maximumPrices);
-    if (originalPrices.length) entry.original_price = Math.max(...originalPrices);
+    // Products are sorted by discount before grouping, so the first row is the
+    // best current offer. Keep that offer's own price range instead of merging
+    // prices from other product pages for the same item code. Different pages
+    // can carry stale or lower-discount prices and are links, not variants.
     entry.sale_types = [...new Set([
       ...entry.sale_types,
       ...(product.sale_types || []),
