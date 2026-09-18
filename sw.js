@@ -1,4 +1,4 @@
-const CACHE_VERSION = "uniqlo-sale-shell-v5";
+const CACHE_VERSION = "uniqlo-sale-shell-v6";
 const DATA_CACHE = "uniqlo-sale-data-v1";
 const APP_SHELL = [
   "./",
@@ -40,6 +40,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
   if (event.request.mode === "navigate") {
+    event.respondWith(networkFirst(event.request));
+    return;
+  }
+  const isMutableShell = /\.(?:html|css|js|mjs|webmanifest)$/.test(url.pathname);
+  if (isMutableShell) {
     event.respondWith(networkFirst(event.request));
     return;
   }
