@@ -45,6 +45,7 @@
 
       <div class="notice hidden" id="status-notice" role="status"></div>
 
+      <div class="browse-region">
       <section class="discover-section" aria-labelledby="discover-title">
         <div class="section-heading compact-heading">
           <div>
@@ -84,7 +85,7 @@
               </select>
             </label>
             <label>
-              <span>最高现价</span>
+              <span>最低观测价不超过</span>
               <select id="price-filter">
                 <option value="all">不限</option>
                 <option value="50">¥50以内</option>
@@ -110,42 +111,20 @@
 
         <div class="filter-actions">
           <div class="active-filters" id="active-filters" aria-live="polite"></div>
-          <button class="share-button" id="share-results" type="button">分享当前结果</button>
+          <button class="share-button" id="share-results" type="button">分享筛选条件</button>
         </div>
-      </section>
-
-      <section class="summary-grid" aria-label="优惠概览">
-        <article class="summary-card accent">
-          <span>全部符合门槛</span>
-          <strong id="summary-products">—</strong>
-          <small>款商品</small>
-        </article>
-        <article class="summary-card">
-          <span>最高优惠</span>
-          <strong id="summary-discount">—</strong>
-          <small>按初上市价计算</small>
-        </article>
-        <article class="summary-card">
-          <span>较上次新增</span>
-          <strong id="summary-added">—</strong>
-          <small>条优惠记录</small>
-        </article>
-        <article class="summary-card">
-          <span>较上次降价</span>
-          <strong id="summary-drops">—</strong>
-          <small>条价格记录</small>
-        </article>
       </section>
 
       <section class="hero-section" aria-labelledby="highlights-title">
         <div class="section-heading">
           <div>
             <p class="section-kicker">TOP DEALS</p>
-            <h2 id="highlights-title">高折扣商品</h2>
+            <h2 id="highlights-title">优惠幅度前9款</h2>
           </div>
-          <p>当前条件下按优惠幅度选取前9款；缺图会明确标注</p>
+          <p>按当前条件的优惠幅度排列；缺图会明确标注</p>
         </div>
         <div class="highlight-grid" id="highlight-grid" aria-live="polite"></div>
+        <a class="jump-to-catalog" href="#products">查看完整优惠清单</a>
       </section>
 
       <section class="catalog-section" id="products" aria-labelledby="catalog-title">
@@ -154,7 +133,7 @@
             <p class="section-kicker">CATALOG</p>
             <h2 id="catalog-title">完整优惠清单</h2>
           </div>
-          <p>首批显示60款，可继续加载</p>
+          <p id="catalog-summary">首批显示60款，可继续加载</p>
         </div>
 
         <div class="desktop-table-wrap">
@@ -177,6 +156,12 @@
 
         <div class="mobile-product-list" id="mobile-product-list"></div>
 
+        <section class="favorite-missing hidden" id="favorite-missing" aria-labelledby="favorite-missing-title">
+          <h3 id="favorite-missing-title">当前数据中未找到的收藏</h3>
+          <p>这些编号仍保存在本浏览器，不能据此判断为售罄或停售。</p>
+          <div id="favorite-missing-list"></div>
+        </section>
+
         <div class="empty-state hidden" id="empty-state">
           <strong>没有符合当前条件的商品</strong>
           <p>可以清空部分筛选条件后重新查看。</p>
@@ -185,6 +170,33 @@
 
         <button class="load-more hidden" id="load-more" type="button">加载更多</button>
       </section>
+      </div>
+
+      <details class="summary-section">
+        <summary>数据概览 <span>查看全站统计</span></summary>
+        <section class="summary-grid" aria-label="全站优惠概览">
+          <article class="summary-card accent">
+            <span>全站符合门槛</span>
+            <strong id="summary-products">—</strong>
+            <small>款商品</small>
+          </article>
+          <article class="summary-card">
+            <span>全站最高优惠</span>
+            <strong id="summary-discount">—</strong>
+            <small>按初上市价计算</small>
+          </article>
+          <article class="summary-card">
+            <span>较上次新增</span>
+            <strong id="summary-added">—</strong>
+            <small>条优惠记录</small>
+          </article>
+          <article class="summary-card">
+            <span>较上次降价</span>
+            <strong id="summary-drops">—</strong>
+            <small>条价格记录</small>
+          </article>
+        </section>
+      </details>
 
       <section class="data-note" aria-labelledby="data-note-title">
         <p class="section-kicker">ABOUT THE DATA</p>

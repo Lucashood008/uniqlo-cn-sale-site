@@ -1,4 +1,4 @@
-const CACHE_VERSION = "uniqlo-sale-shell-v4";
+const CACHE_VERSION = "uniqlo-sale-shell-v5";
 const DATA_CACHE = "uniqlo-sale-data-v1";
 const APP_SHELL = [
   "./",
