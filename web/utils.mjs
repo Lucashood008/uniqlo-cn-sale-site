@@ -88,6 +88,19 @@ export function filterProducts(products, filters, favorites = new Set()) {
   return result.sort(compareSortKeys);
 }
 
+export function officialImageUrl(product) {
+  const candidate = String(product?.image_url || "").trim();
+  if (!candidate) return "";
+  try {
+    const url = new URL(candidate);
+    return url.protocol === "https:" && url.hostname === "www.uniqlo.cn"
+      ? url.href
+      : "";
+  } catch {
+    return "";
+  }
+}
+
 export function historyForProduct(product, history) {
   if (!history || !Array.isArray(history.days)) return [];
   const codes = new Set((product.offers || []).map((offer) => offer.product_code));

@@ -5,6 +5,7 @@ import {
   firstSeenForProduct,
   groupProducts,
   historyForProduct,
+  officialImageUrl,
   parseChangeSummary,
 } from "./utils.mjs";
 
@@ -317,11 +318,12 @@ function renderHighlights() {
   elements.highlightGrid.innerHTML = items.map((product) => {
     const code = escapeHtml(product.item_code);
     const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
+    const officialImage = escapeHtml(officialImageUrl(product));
     return `
       <article class="highlight-card" data-product-code="${escapeHtml(product.product_code)}">
         <button class="highlight-open" type="button" data-open="${code}">
           <span class="highlight-image-wrap">
-            <img src="${imagePath}" alt="${escapeHtml(product.name)}" loading="lazy" data-image-fallback>
+            <img src="${imagePath}" alt="${escapeHtml(product.name)}" loading="lazy" data-image-fallback data-official-image="${officialImage}">
             <span class="image-fallback">暂无商品图<br>编号 ${code}</span>
             <strong>${escapeHtml(product.discount_percent)}%</strong>
           </span>
@@ -618,6 +620,7 @@ function showProduct(code, { updateUrl = true } = {}) {
   const lowest = history.length ? Math.min(...history.map((entry) => entry.price)) : null;
   const favorite = state.favorites.has(code);
   const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
+  const officialImage = escapeHtml(officialImageUrl(product));
   const primaryOffer = product.offers[0];
   const observedRange = history.length
     ? `${escapeHtml(history[0].date)} 至 ${escapeHtml(history.at(-1).date)}`
@@ -626,7 +629,7 @@ function showProduct(code, { updateUrl = true } = {}) {
   elements.dialogTitle.textContent = product.name;
   elements.dialogContent.innerHTML = `
     <div class="detail-product">
-      <img class="detail-image" src="${imagePath}" alt="${escapeHtml(product.name)}" data-detail-image>
+      <img class="detail-image" src="${imagePath}" alt="${escapeHtml(product.name)}" data-detail-image data-official-image="${officialImage}">
       <div>
         <p class="detail-price-label">当前观测价格${Number(product.current_max_price) > Number(product.current_min_price) ? "区间" : ""}</p>
         <p class="detail-price">${priceLabel(product)}</p>
@@ -659,8 +662,7 @@ function showProduct(code, { updateUrl = true } = {}) {
     </details>
     <p class="detail-footnote">${escapeHtml(product.sale_types.join("、"))} · ${escapeHtml(product.genders.join("、"))}。价格、库存、颜色和尺码以官网为准；本站为非官方项目。</p>`;
   const detailImage = elements.dialogContent.querySelector("[data-detail-image]");
-  detailImage?.addEventListener("error", () => { detailImage.hidden = true; }, { once: true });
-  if (detailImage?.complete && detailImage.naturalWidth === 0) detailImage.hidden = true;
+  if (detailImage) bindImageFallback(detailImage, () => { detailImage.hidden = true; });
   if (!elements.dialog.open) elements.dialog.showModal();
   if (updateUrl) updateProductParam(code, { push: true });
 }
@@ -719,11 +721,27 @@ function historyChart(history) {
     </svg>`;
 }
 
+function bindImageFallback(image, onMissing) {
+  const fallback = () => {
+    const officialImage = image.dataset.officialImage;
+    if (officialImage && image.dataset.officialTried !== "true") {
+      image.dataset.officialTried = "true";
+      image.src = officialImage;
+      return;
+    }
+    image.removeEventListener("error", fallback);
+    onMissing();
+  };
+  image.addEventListener("error", fallback);
+  if (image.complete && image.naturalWidth === 0) fallback();
+}
+
 function bindImageFallbacks(container) {
   container.querySelectorAll("[data-image-fallback]").forEach((image) => {
-    const fallback = () => image.closest(".highlight-image-wrap")?.classList.add("image-missing");
-    image.addEventListener("error", fallback, { once: true });
-    if (image.complete && image.naturalWidth === 0) fallback();
+    bindImageFallback(
+      image,
+      () => image.closest(".highlight-image-wrap")?.classList.add("image-missing"),
+    );
   });
 }
 
