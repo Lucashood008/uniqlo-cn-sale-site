@@ -319,6 +319,12 @@ function renderHighlights() {
     const code = escapeHtml(product.item_code);
     const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
     const officialImage = escapeHtml(officialImageUrl(product));
+    const originalPrice = Number(product.original_price);
+    const currentPrice = Number(product.current_min_price);
+    const originalPriceMarkup = Number.isFinite(originalPrice)
+      && (!Number.isFinite(currentPrice) || originalPrice > currentPrice)
+      ? `<del class="highlight-original-price">¥${money(originalPrice)}</del>`
+      : "";
     return `
       <article class="highlight-card" data-product-code="${escapeHtml(product.product_code)}">
         <button class="highlight-open" type="button" data-open="${code}">
@@ -330,8 +336,11 @@ function renderHighlights() {
           <span class="highlight-name">${escapeHtml(product.name)}</span>
         </button>
         <div class="highlight-meta">
+          <div class="highlight-pricing">
+            <strong class="highlight-current-price">${priceLabel(product)}</strong>
+            ${originalPriceMarkup}
+          </div>
           <button class="copy-code" type="button" data-copy="${code}" aria-label="复制商品编号 ${code}">${code}</button>
-          <span>${priceLabel(product)}</span>
         </div>
       </article>`;
   }).join("");

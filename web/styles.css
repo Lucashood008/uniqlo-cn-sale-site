@@ -192,6 +192,13 @@ main { padding: 24px 0 72px; }
 .hero-section,
 .catalog-section,
 .data-note { margin-top: 48px; }
+.hero-section {
+  padding: 24px;
+  border: 1px solid #e3e1dc;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fff 0%, #f8f7f3 100%);
+  box-shadow: 0 18px 48px rgb(17 17 17 / 0.06);
+}
 .catalog-section { scroll-margin-top: calc(var(--filter-bar-height) + 12px); }
 
 .summary-section { margin-top: 34px; border: 1px solid var(--line); background: var(--white); }
@@ -226,14 +233,26 @@ main { padding: 24px 0 72px; }
   background: var(--white);
   color: var(--muted);
 }
-.highlight-card { min-width: 0; overflow: hidden; background: var(--white); border-radius: var(--radius); box-shadow: 0 4px 15px rgb(17 17 17 / 0.05); }
+.highlight-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e2e0db;
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0 7px 20px rgb(17 17 17 / 0.07);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgb(17 17 17 / 0.11);
+}
 .highlight-open { width: 100%; padding: 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
 .highlight-image-wrap {
   position: relative;
   display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #e7e6e1;
+  background: #f3f2ef;
 }
 .highlight-image-wrap img { width: 100%; height: 100%; display: block; object-fit: contain; transition: transform 180ms ease; }
 .highlight-open:hover img { transform: scale(1.025); }
@@ -270,12 +289,34 @@ main { padding: 24px 0 72px; }
 }
 .highlight-meta {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   gap: 8px;
   padding: 4px 14px 14px;
 }
-.highlight-meta > span { color: var(--red); font-size: 20px; font-weight: 800; }
+.highlight-pricing {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 3px 8px;
+}
+.highlight-current-price {
+  color: var(--red);
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+.highlight-original-price {
+  color: #898989;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.highlight-meta .copy-code {
+  flex: 0 1 auto;
+  color: #5f5f5f;
+  font-size: 12px;
+}
 .jump-to-catalog { display: block; width: fit-content; margin: 14px auto 0; padding: 8px 14px; font-size: 13px; font-weight: 800; }
 
 .copy-code {
@@ -514,15 +555,45 @@ main { padding: 24px 0 72px; }
   .hero-section,
   .catalog-section,
   .data-note { margin-top: 34px; }
+  .hero-section {
+    margin-inline: -12px;
+    padding: 18px 12px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
   .section-heading { align-items: start; }
   .section-heading > p { max-width: 145px; text-align: right; font-size: 11px; }
   .highlight-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
   .highlight-image-wrap { aspect-ratio: 1 / 1.18; }
   .highlight-image-wrap > strong { top: 5px; left: 5px; padding: 3px 5px; font-size: 12px; }
   .highlight-name { min-height: 53px; padding: 8px 7px 3px; font-size: 11px; line-height: 1.35; }
-  .highlight-meta { display: block; padding: 3px 7px 8px; }
-  .highlight-meta .copy-code { max-width: 100%; padding-inline: 0; overflow: hidden; text-overflow: ellipsis; font-size: 10px; }
-  .highlight-meta > span { display: block; font-size: 15px; }
+  .highlight-meta {
+    display: flex;
+    min-height: 62px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    padding: 3px 7px 8px;
+  }
+  .highlight-pricing {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 5px;
+  }
+  .highlight-current-price { font-size: 15px; }
+  .highlight-original-price { font-size: 10px; }
+  .highlight-meta .copy-code {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 22px;
+    margin-top: auto;
+    padding: 1px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
+  }
   body.filter-open { overflow: hidden; }
   .filter-panel {
     grid-template-columns: minmax(0, 1fr) auto;
