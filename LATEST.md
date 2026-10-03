@@ -1,6 +1,6 @@
 # 优衣库中国大陆男装当前打折商品
 
-更新时间：2026-10-02 13:33（北京时间）  
+更新时间：2026-10-03 13:15（北京时间）  
 筛选范围：男装（含男女同款）  
 网页仅展示优惠幅度不低于 **40%** 的商品。
 
@@ -12,14 +12,14 @@
 |---:|---:|---:|---:|---:|
 | 185款 | 209条 | 0款 | 185款 | 70.4% |
 
-完整采集共 **312** 条记录、**282** 个商品编号；完整记录可下载 [latest.csv](latest.csv)。同一商品编号可能对应不同商品页面，展示时归为一款并保留各页面入口。
+完整采集共 **311** 条记录、**282** 个商品编号；完整记录可下载 [latest.csv](latest.csv)。同一商品编号可能对应不同商品页面，展示时归为一款并保留各页面入口。
 
 ## 今日变化
 
-- 新增优惠：3 条
+- 新增优惠：4 条
 - 降价：0 条
 - 涨价：0 条
-- 本次未检出：15 条
+- 本次未检出：5 条
 
 [查看变化明细](reports/changes.md)。“本次未检出”只表示本次优惠列表未返回，不直接认定商品永久退出活动。
 
@@ -53,7 +53,6 @@
 | 482903 | [易打理快干弹力轻型长裤/加长款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075002) | 66.9% | ¥299 | ¥99 | 超值精选 | 男装 |
 | 482904 | [易打理快干弹力轻型长裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074998) | 66.9% | ¥299 | ¥99 | 超值精选 | 男装 |
 | 478277 | [高性能复合连帽外套/保暖夹克含羽绒](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070253) | 62.6% | ¥799 | ¥299 | 超值精选 | 男装 |
-| 482770 | [UT ONE PIECE/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000072761) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 482771 | [UT蓝色禁区印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071753) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 482773 | [UT MusicalIcons印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071154) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 484760 | [UT卢浮宫博物馆印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070877) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
@@ -64,6 +63,7 @@
 | 487921 | [UT蓝色禁区印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071752) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 487922 | [UT蓝色禁区印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071733) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 488131 | [UT Disney x F1®印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071501) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
+| 488247 | [UT ONE PIECE/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000072745) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 488248 | [UT ONE PIECE/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000072763) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 488733 | [UT MusicalIcons印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071134) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 489155 | [UT PIXAR印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000072398) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
@@ -119,7 +119,7 @@
 | 482478 | [快干防皱衬衫/条纹短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070936) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482479 | [莫代尔混纺开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075342)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075342) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070119)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482480 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075319)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075319) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070092)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
-| 482481 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073747)<br><sub>同编号 3 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073747) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075321) [3](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070073)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
+| 482481 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075321)<br><sub>同编号 3 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075321) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073747) [3](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070073)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482483 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075322)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075322) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070077)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482485 | [棉麻立领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075900) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482502 | [棉麻衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075901)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075901) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073584)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
@@ -175,9 +175,8 @@
 | 481642 | [时尚太阳镜/金属飞行员](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070672) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 481645 | [时尚太阳镜/平顶](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069821) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 481647 | [时尚太阳镜/双桥](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069841) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
-| 482295 | [AIRism宽松圆领T恤/5分袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075497) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
+| 482295 | [AIRism宽松圆领T恤/5分袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075497)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075497) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074340)</sub> | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482299 | [DRY-EX速干T恤/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076324) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
-| 482747 | [UT MAGIC FOR ALL印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000068858) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482750 | [UT 泰特美术馆系列印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069515) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482751 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066898) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482752 | [UT NY POP ART印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066696) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
@@ -193,11 +192,12 @@
 | 484778 | [漫画UT集英社创立100周年UT短袖T恤全职猎人](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070418) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 484779 | [漫画UT集英社创立100周年UT短袖T恤全职猎人](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070421) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 484908 | [UT Yu Nagaba印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066913)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066913) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076327)</sub> | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
-| 484909 | [UT Yu Nagaba印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066895)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066895) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076328)</sub><br><sub>近30日观测新低 · 近90日观测新低</sub> | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
+| 484909 | [UT Yu Nagaba印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066895) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 484934 | [时尚太阳镜/棱角猫眼](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069838) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 484935 | [时尚太阳镜/运动风方形](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069837) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485033 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066882) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485034 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066886) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
+| 485035 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066912) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485038 | [UT Yu Nagaba印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066897) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485043 | [UT MAGIC FOR ALL印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067113) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485044 | [UT MAGIC FOR ALL印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067134) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
