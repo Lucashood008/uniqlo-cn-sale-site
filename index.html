@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#111111">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#19191c" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
     <meta name="description" content="优衣库中国大陆男装优惠浏览、筛选与价格记录。">
     <meta name="robots" content="noindex, nofollow">
     <meta name="referrer" content="no-referrer">
@@ -121,7 +123,7 @@
             <p class="section-kicker">TOP DEALS</p>
             <h2 id="highlights-title">优惠幅度前9款</h2>
           </div>
-          <p>按当前条件的优惠幅度排列；缺图会明确标注</p>
+          <p>TOP 为当前条件下的优惠排名；缺图会明确标注</p>
         </div>
         <div class="highlight-grid" id="highlight-grid" aria-live="polite"></div>
         <a class="jump-to-catalog" href="#products">查看完整优惠清单</a>
@@ -140,6 +142,7 @@
           <table class="product-table">
             <thead>
               <tr>
+                <th scope="col" class="sequence-column">序号</th>
                 <th>商品编号</th>
                 <th>商品名称</th>
                 <th>优惠幅度</th>

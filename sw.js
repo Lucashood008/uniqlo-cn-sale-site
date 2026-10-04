@@ -1,4 +1,4 @@
-const CACHE_VERSION = "uniqlo-sale-shell-v7";
+const CACHE_VERSION = "uniqlo-sale-shell-v8";
 const DATA_CACHE = "uniqlo-sale-data-v1";
 const APP_SHELL = [
   "./",
@@ -52,7 +52,12 @@ self.addEventListener("fetch", (event) => {
 });
 
 async function networkFirst(request) {
-  const cache = await caches.open(DATA_CACHE);
+  const pathname = new URL(request.url).pathname;
+  const isData = pathname.endsWith("/data/latest.json")
+    || pathname.endsWith("/data/price_history.json")
+    || pathname.endsWith("/reports/changes.md");
+  // Keep the versioned UI shell separate from persistent product snapshots.
+  const cache = await caches.open(isData ? DATA_CACHE : CACHE_VERSION);
   try {
     const response = await fetch(request);
     if (response.ok) await cache.put(request, response.clone());

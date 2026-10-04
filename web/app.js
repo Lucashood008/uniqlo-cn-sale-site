@@ -12,7 +12,7 @@ import {
 const PAGE_SIZE = 60;
 const FAVORITES_KEY = "uniqlo-sale-favorites-v1";
 const FAVORITE_PRODUCTS_KEY = "uniqlo-sale-favorite-products-v1";
-const mobileFilters = window.matchMedia("(max-width: 680px)");
+const mobileFilters = window.matchMedia("(max-width: 1020px)");
 
 const state = {
   snapshot: null,
@@ -315,7 +315,7 @@ function renderHighlights() {
   const items = [...state.filtered]
     .sort(compareSortKeys)
     .slice(0, 9);
-  elements.highlightGrid.innerHTML = items.map((product) => {
+  elements.highlightGrid.innerHTML = items.map((product, index) => {
     const code = escapeHtml(product.item_code);
     const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
     const officialImage = escapeHtml(officialImageUrl(product));
@@ -333,7 +333,7 @@ function renderHighlights() {
             <span class="image-fallback">暂无商品图<br>编号 ${code}</span>
             <strong>${escapeHtml(product.discount_percent)}%</strong>
           </span>
-          <span class="highlight-name">${escapeHtml(product.name)}</span>
+          <span class="highlight-title"><span class="sequence-badge sequence-badge-top" aria-label="优惠排名第${index + 1}款">TOP ${String(index + 1).padStart(2, "0")}</span><span class="highlight-name">${escapeHtml(product.name)}</span></span>
         </button>
         <div class="highlight-meta">
           <div class="highlight-pricing">
@@ -384,11 +384,12 @@ function renderUnavailableFavorites() {
   }).join("");
 }
 
-function tableRow(product) {
+function tableRow(product, index) {
   const code = escapeHtml(product.item_code);
   const favorited = state.favorites.has(String(product.item_code));
   return `
     <tr>
+      <td class="sequence-column"><span class="sequence-badge" aria-label="清单第${index + 1}款">${String(index + 1).padStart(2, "0")}</span></td>
       <td><button class="copy-code" type="button" data-copy="${code}" title="复制商品编号">${code}</button></td>
       <td><button class="product-link" type="button" data-open="${code}">${escapeHtml(product.name)}</button></td>
       <td><strong class="discount-value">${escapeHtml(product.discount_percent)}%</strong></td>
@@ -400,7 +401,7 @@ function tableRow(product) {
     </tr>`;
 }
 
-function mobileCard(product) {
+function mobileCard(product, index) {
   const code = escapeHtml(product.item_code);
   const favorited = state.favorites.has(String(product.item_code));
   return `
@@ -409,7 +410,7 @@ function mobileCard(product) {
         <span class="discount-badge">优惠 ${escapeHtml(product.discount_percent)}%</span>
         <button class="favorite-button ${favorited ? "is-active" : ""}" type="button" data-favorite="${code}" aria-pressed="${favorited}" aria-label="${favorited ? "取消收藏" : "收藏"}">${favorited ? "♥" : "♡"}</button>
       </div>
-      <button class="mobile-card-title" type="button" data-open="${code}">${escapeHtml(product.name)}</button>
+      <div class="mobile-title-row"><span class="sequence-badge" aria-label="清单第${index + 1}款">${String(index + 1).padStart(2, "0")}</span><button class="mobile-card-title" type="button" data-open="${code}">${escapeHtml(product.name)}</button></div>
       <div class="mobile-price"><strong>${priceLabel(product)}</strong><del>¥${money(product.original_price)}</del></div>
       <p>${escapeHtml(product.sale_types.join("、"))} · ${escapeHtml(product.genders.join("、"))}</p>
       <button class="copy-code" type="button" data-copy="${code}">商品编号 ${code}</button>
@@ -933,8 +934,8 @@ window.addEventListener("popstate", () => {
 });
 
 if ("ResizeObserver" in window) {
-  const filterObserver = new ResizeObserver(([entry]) => {
-    document.documentElement.style.setProperty("--filter-bar-height", `${Math.ceil(entry.contentRect.height)}px`);
+  const filterObserver = new ResizeObserver(() => {
+    document.documentElement.style.setProperty("--filter-bar-height", `${Math.ceil(elements.filterPanel.getBoundingClientRect().height)}px`);
   });
   filterObserver.observe(elements.filterPanel);
 }
