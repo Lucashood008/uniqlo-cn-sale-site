@@ -10,9 +10,12 @@ import {
 } from "./utils.mjs";
 
 const PAGE_SIZE = 60;
+const HIGHLIGHT_COUNT = 12;
+const MOBILE_HIGHLIGHT_COUNT = 6;
 const FAVORITES_KEY = "uniqlo-sale-favorites-v1";
 const FAVORITE_PRODUCTS_KEY = "uniqlo-sale-favorite-products-v1";
 const mobileFilters = window.matchMedia("(max-width: 1020px)");
+const compactHighlights = window.matchMedia("(max-width: 680px)");
 
 const state = {
   snapshot: null,
@@ -23,6 +26,8 @@ const state = {
   favorites: loadFavorites(),
   favoriteProducts: loadFavoriteProducts(),
   favoritesOnly: false,
+  highlightsExpanded: false,
+  catalogIncludesHighlights: false,
   appliedFilters: { source: "all", minimumDiscount: "40", maximumPrice: "all", sort: "discount" },
   filterSnapshot: null,
   filterHistoryReturn: null,
@@ -50,9 +55,13 @@ const elements = {
   filterToggle: document.querySelector("#filter-toggle"),
   favoritesToggle: document.querySelector("#favorites-toggle"),
   highlightGrid: document.querySelector("#highlight-grid"),
+  highlightToggle: document.querySelector("#highlight-toggle"),
   loadMore: document.querySelector("#load-more"),
   mobileList: document.querySelector("#mobile-product-list"),
   catalogSummary: document.querySelector("#catalog-summary"),
+  catalogDisclosure: document.querySelector("#catalog-disclosure"),
+  catalogDisclosureText: document.querySelector("#catalog-disclosure-text"),
+  catalogDuplicatesToggle: document.querySelector("#catalog-duplicates-toggle"),
   price: document.querySelector("#price-filter"),
   refresh: document.querySelector("#refresh-button"),
   resultCount: document.querySelector("#result-count"),
@@ -293,7 +302,10 @@ function updateProductParam(code = "", { push = false } = {}) {
 }
 
 function applyFilters({ resetPage = true } = {}) {
-  if (resetPage) state.visibleCount = PAGE_SIZE;
+  if (resetPage) {
+    state.visibleCount = PAGE_SIZE;
+    state.catalogIncludesHighlights = false;
+  }
   state.filtered = filterProducts(state.products, currentFilters(), state.favorites);
   renderHighlights();
   renderProducts();
@@ -311,10 +323,39 @@ function renderSummary() {
   elements.favoriteCount.textContent = String(state.favorites.size);
 }
 
-function renderHighlights() {
-  const items = [...state.filtered]
+function allHighlightItems() {
+  return [...state.filtered]
     .sort(compareSortKeys)
-    .slice(0, 9);
+    .slice(0, HIGHLIGHT_COUNT);
+}
+
+function visibleHighlightItems() {
+  const limit = compactHighlights.matches && !state.highlightsExpanded
+    ? MOBILE_HIGHLIGHT_COUNT
+    : HIGHLIGHT_COUNT;
+  return allHighlightItems().slice(0, limit);
+}
+
+function canHideCatalogDuplicates() {
+  const filters = currentFilters();
+  return filters.sort === "discount"
+    && !filters.query.trim()
+    && !filters.favoritesOnly
+    && state.filtered.length > HIGHLIGHT_COUNT;
+}
+
+function catalogEntries() {
+  const hiddenCodes = state.catalogIncludesHighlights || !canHideCatalogDuplicates()
+    ? new Set()
+    : new Set(visibleHighlightItems().map((product) => String(product.item_code)));
+  return state.filtered
+    .map((product, index) => ({ product, index }))
+    .filter(({ product }) => !hiddenCodes.has(String(product.item_code)));
+}
+
+function renderHighlights() {
+  const allItems = allHighlightItems();
+  const items = visibleHighlightItems();
   elements.highlightGrid.innerHTML = items.map((product, index) => {
     const code = escapeHtml(product.item_code);
     const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
@@ -331,9 +372,10 @@ function renderHighlights() {
           <span class="highlight-image-wrap">
             <img src="${imagePath}" alt="${escapeHtml(product.name)}" loading="lazy" data-image-fallback data-official-image="${officialImage}">
             <span class="image-fallback">暂无商品图<br>编号 ${code}</span>
-            <strong>${escapeHtml(product.discount_percent)}%</strong>
+            <strong class="highlight-discount">${escapeHtml(product.discount_percent)}%</strong>
+            <span class="sequence-badge sequence-badge-top" aria-label="优惠排名第${index + 1}款">TOP ${String(index + 1).padStart(2, "0")}</span>
           </span>
-          <span class="highlight-title"><span class="sequence-badge sequence-badge-top" aria-label="优惠排名第${index + 1}款">TOP ${String(index + 1).padStart(2, "0")}</span><span class="highlight-name">${escapeHtml(product.name)}</span></span>
+          <span class="highlight-title"><span class="highlight-name">${escapeHtml(product.name)}</span></span>
         </button>
         <div class="highlight-meta">
           <div class="highlight-pricing">
@@ -346,26 +388,58 @@ function renderHighlights() {
   }).join("");
   elements.highlightGrid.classList.toggle("is-empty", items.length === 0);
   if (!items.length) elements.highlightGrid.innerHTML = "<p>当前筛选条件下没有商品。</p>";
+
+  const canExpand = compactHighlights.matches && allItems.length > MOBILE_HIGHLIGHT_COUNT;
+  elements.highlightToggle.classList.toggle("hidden", !canExpand);
+  if (canExpand) {
+    const remaining = Math.max(0, allItems.length - MOBILE_HIGHLIGHT_COUNT);
+    elements.highlightToggle.textContent = state.highlightsExpanded
+      ? "收起至前6款"
+      : `查看其余${remaining}款`;
+    elements.highlightToggle.setAttribute("aria-expanded", String(state.highlightsExpanded));
+  }
   bindImageFallbacks(elements.highlightGrid);
 }
 
 function renderProducts() {
-  const visible = state.filtered.slice(0, state.visibleCount);
+  const entries = catalogEntries();
+  const visible = entries.slice(0, state.visibleCount);
+  const hiddenCount = state.filtered.length - entries.length;
+  const uniqueVisibleCount = Math.min(state.filtered.length, visible.length + hiddenCount);
   elements.resultCount.textContent = state.favoritesOnly
     ? `已收藏 ${state.favorites.size} 款，当前符合条件 ${state.filtered.length} 款`
-    : `当前找到 ${state.filtered.length} 款，已显示 ${visible.length} 款`;
+    : `当前找到 ${state.filtered.length} 款，页面已展示 ${uniqueVisibleCount} 款`;
   elements.filterApply.textContent = `查看 ${state.filtered.length} 款结果`;
-  elements.catalogSummary.textContent = state.filtered.length
-    ? `已显示 ${visible.length}/${state.filtered.length} 款`
+  elements.catalogSummary.textContent = entries.length
+    ? hiddenCount
+      ? `清单已显示 ${visible.length}/${entries.length} 款；上方已展示${hiddenCount}款`
+      : `清单已显示 ${visible.length}/${entries.length} 款`
     : "当前条件下没有商品";
-  elements.tableBody.innerHTML = visible.map(tableRow).join("");
-  elements.mobileList.innerHTML = visible.map(mobileCard).join("");
+  elements.tableBody.innerHTML = visible.map(({ product, index }) => tableRow(product, index)).join("");
+  elements.mobileList.innerHTML = visible.map(({ product, index }) => mobileCard(product, index)).join("");
   elements.empty.classList.toggle("hidden", state.filtered.length !== 0);
-  elements.loadMore.classList.toggle("hidden", visible.length >= state.filtered.length);
-  if (visible.length < state.filtered.length) {
-    elements.loadMore.textContent = `继续加载（已显示 ${visible.length}/${state.filtered.length} 款）`;
+  elements.loadMore.classList.toggle("hidden", visible.length >= entries.length);
+  if (visible.length < entries.length) {
+    elements.loadMore.textContent = `继续加载（清单已显示 ${visible.length}/${entries.length} 款）`;
   }
+  renderCatalogDisclosure(hiddenCount);
   renderUnavailableFavorites();
+}
+
+function renderCatalogDisclosure(hiddenCount) {
+  const available = canHideCatalogDuplicates();
+  elements.catalogDisclosure.classList.toggle("hidden", !available);
+  if (!available) return;
+
+  const duplicateCount = visibleHighlightItems().length;
+  if (state.catalogIncludesHighlights) {
+    elements.catalogDisclosureText.textContent = `当前显示完整清单，包含上方已展示的${duplicateCount}款。`;
+    elements.catalogDuplicatesToggle.textContent = `收起重复${duplicateCount}款`;
+  } else {
+    elements.catalogDisclosureText.textContent = `上方已展示前${hiddenCount}款，清单从第${hiddenCount + 1}款继续。`;
+    elements.catalogDuplicatesToggle.textContent = `展开重复${hiddenCount}款`;
+  }
+  elements.catalogDuplicatesToggle.setAttribute("aria-expanded", String(state.catalogIncludesHighlights));
 }
 
 function renderUnavailableFavorites() {
@@ -879,9 +953,25 @@ mobileFilters.addEventListener("change", (event) => {
     writeFilterControls(state.appliedFilters);
   }
 });
+compactHighlights.addEventListener("change", () => {
+  state.highlightsExpanded = false;
+  if (!state.products.length) return;
+  renderHighlights();
+  renderProducts();
+});
 elements.clearFilters.addEventListener("click", () => clearFilters({ stage: true }));
 elements.refresh.addEventListener("click", () => loadData({ announce: true }));
 elements.shareResults.addEventListener("click", shareCurrentResults);
+elements.highlightToggle.addEventListener("click", () => {
+  state.highlightsExpanded = !state.highlightsExpanded;
+  renderHighlights();
+  renderProducts();
+});
+elements.catalogDuplicatesToggle.addEventListener("click", () => {
+  state.catalogIncludesHighlights = !state.catalogIncludesHighlights;
+  state.visibleCount = PAGE_SIZE;
+  renderProducts();
+});
 elements.loadMore.addEventListener("click", () => {
   state.visibleCount += PAGE_SIZE;
   renderProducts();
@@ -949,3 +1039,4 @@ if ("serviceWorker" in navigator && location.protocol !== "file:") {
 
 readUrlState();
 loadData();
+

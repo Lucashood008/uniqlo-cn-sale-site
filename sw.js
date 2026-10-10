@@ -1,4 +1,4 @@
-const CACHE_VERSION = "uniqlo-sale-shell-v8";
+const CACHE_VERSION = "uniqlo-sale-shell-v9";
 const DATA_CACHE = "uniqlo-sale-data-v1";
 const APP_SHELL = [
   "./",
@@ -79,3 +79,4 @@ async function cacheFirst(request) {
   }
   return response;
 }
+

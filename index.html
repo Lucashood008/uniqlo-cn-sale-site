@@ -121,12 +121,15 @@
         <div class="section-heading">
           <div>
             <p class="section-kicker">TOP DEALS</p>
-            <h2 id="highlights-title">优惠幅度前9款</h2>
+            <h2 id="highlights-title">优惠幅度前12款</h2>
           </div>
           <p>TOP 为当前条件下的优惠排名；缺图会明确标注</p>
         </div>
         <div class="highlight-grid" id="highlight-grid" aria-live="polite"></div>
-        <a class="jump-to-catalog" href="#products">查看完整优惠清单</a>
+        <div class="highlight-actions">
+          <button class="highlight-toggle hidden" id="highlight-toggle" type="button" aria-expanded="false" aria-controls="highlight-grid">查看其余6款</button>
+          <a class="jump-to-catalog" href="#products">直接看清单</a>
+        </div>
       </section>
 
       <section class="catalog-section" id="products" aria-labelledby="catalog-title">
@@ -136,6 +139,11 @@
             <h2 id="catalog-title">完整优惠清单</h2>
           </div>
           <p id="catalog-summary">首批显示60款，可继续加载</p>
+        </div>
+
+        <div class="catalog-disclosure hidden" id="catalog-disclosure">
+          <p id="catalog-disclosure-text"></p>
+          <button id="catalog-duplicates-toggle" type="button" aria-expanded="false" aria-controls="product-table-body mobile-product-list">展开重复商品</button>
         </div>
 
         <div class="desktop-table-wrap">
@@ -227,3 +235,4 @@
     <script type="module" src="./web/app.js"></script>
   </body>
 </html>
+
