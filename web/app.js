@@ -16,8 +16,15 @@ const FAVORITES_KEY = "uniqlo-sale-favorites-v1";
 const FAVORITE_PRODUCTS_KEY = "uniqlo-sale-favorite-products-v1";
 const mobileFilters = window.matchMedia("(max-width: 1020px)");
 const compactHighlights = window.matchMedia("(max-width: 680px)");
+const channels = {
+  men: { name: "男装", data: "./data", report: "./reports/changes.md", downloads: ".", scopes: ["menswear-including-unisex-v1", "adult-men-inclusive-v2"] },
+  women: { name: "女装", data: "./data/women", report: "./reports/women/changes.md", downloads: "./women", scopes: ["adult-women-inclusive-v1"] },
+};
+const channelFromUrl = () => new URLSearchParams(location.search).get("channel") === "women" ? "women" : "men";
+let loadSequence = 0;
 
 const state = {
+  channel: channelFromUrl(),
   snapshot: null,
   history: null,
   products: [],
@@ -32,7 +39,6 @@ const state = {
   filterSnapshot: null,
   filterHistoryReturn: null,
   changes: { added: null, drops: null, increases: null, missing: null },
-  pendingProduct: new URLSearchParams(location.search).get("product"),
 };
 
 const elements = {
@@ -97,8 +103,12 @@ function loadFavoriteProducts() {
 }
 
 function saveFavorites() {
-  localStorage.setItem(FAVORITES_KEY, JSON.stringify([...state.favorites]));
-  localStorage.setItem(FAVORITE_PRODUCTS_KEY, JSON.stringify(Object.fromEntries(state.favoriteProducts)));
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify([...state.favorites]));
+    localStorage.setItem(FAVORITE_PRODUCTS_KEY, JSON.stringify(Object.fromEntries(state.favoriteProducts)));
+  } catch {
+    showNotice("浏览器未允许保存收藏，本次打开期间仍可使用。", "warning");
+  }
   elements.favoriteCount.textContent = String(state.favorites.size);
 }
 
@@ -163,6 +173,8 @@ async function getText(url) {
 }
 
 async function loadData({ announce = false } = {}) {
+  const request = ++loadSequence;
+  const channel = channels[state.channel];
   const hadProducts = state.products.length > 0;
   elements.statusNotice.className = "notice hidden";
   elements.statusNotice.textContent = "";
@@ -170,8 +182,10 @@ async function loadData({ announce = false } = {}) {
   elements.refresh.textContent = "读取中…";
   let snapshot;
   try {
-    snapshot = await getJson("./data/latest.json");
+    snapshot = await getJson(`${channel.data}/latest.json`);
+    if (!channel.scopes.includes(snapshot.scope) || !Array.isArray(snapshot.products)) throw new Error("频道快照不符");
   } catch {
+    if (request !== loadSequence) return;
     elements.statusTitle.textContent = hadProducts ? "刷新失败，继续显示原数据" : "暂时无法读取商品数据";
     elements.updatedAt.textContent = hadProducts ? elements.updatedAt.textContent : "请检查网络后重试";
     showNotice(hadProducts ? "未能取得新数据，当前清单仍是刷新前的版本。" : "商品快照加载失败，请检查网络后重试。", "error");
@@ -179,6 +193,7 @@ async function loadData({ announce = false } = {}) {
     elements.refresh.textContent = "重新读取";
     return;
   }
+  if (request !== loadSequence) return;
 
   state.snapshot = snapshot;
   state.products = groupProducts(state.snapshot.products || [])
@@ -194,17 +209,17 @@ async function loadData({ announce = false } = {}) {
   applyFilters();
   elements.refresh.disabled = false;
   elements.refresh.textContent = "刷新";
-  if (state.pendingProduct) {
-    showProduct(state.pendingProduct, { updateUrl: false });
-    state.pendingProduct = null;
-  }
+  const linked = new URLSearchParams(location.search).get("product");
+  if (linked) showProduct(linked, { updateUrl: false });
   if (announce) showToast("已重新读取最新发布数据");
 
   const [historyResult, changesResult] = await Promise.allSettled([
-    getJson("./data/price_history.json"),
-    getText("./reports/changes.md"),
+    getJson(`${channel.data}/price_history.json`),
+    getText(channel.report),
   ]);
-  state.history = historyResult.status === "fulfilled" ? historyResult.value : null;
+  if (request !== loadSequence) return;
+  state.history = historyResult.status === "fulfilled" && channel.scopes.includes(historyResult.value?.scope)
+    ? historyResult.value : null;
   state.changes = changesResult.status === "fulfilled"
     ? parseChangeSummary(changesResult.value)
     : state.changes;
@@ -213,9 +228,61 @@ async function loadData({ announce = false } = {}) {
     ? new URLSearchParams(location.search).get("product")
     : "";
   if (openProduct) showProduct(openProduct, { updateUrl: false });
-  if (historyResult.status !== "fulfilled") {
+  if (!state.history) {
     showNotice("商品清单已加载；价格历史暂时不可用。", "warning");
   }
+}
+
+function renderChannel() {
+  const channel = channels[state.channel];
+  document.title = `优衣库${channel.name}优惠`;
+  document.querySelectorAll("[data-channel]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.channel === state.channel));
+  });
+  const labels = {
+    "channel-scope": channel.name, "channel-note": channel.name,
+    "channel-ranking": channel.name + "高折扣榜", "catalog-title": channel.name + "完整优惠清单",
+  };
+  // An older service worker can return the previous HTML during an upgrade.
+  for (const [id, label] of Object.entries(labels)) {
+    const node = document.getElementById(id);
+    if (node) node.textContent = label;
+  }
+  const links = {
+    "channel-csv": channel.downloads + "/latest.csv", "channel-markdown": channel.downloads + "/LATEST.md",
+    "channel-report": channel.report,
+  };
+  for (const [id, url] of Object.entries(links)) {
+    const node = document.getElementById(id);
+    if (node) node.href = url;
+  }
+}
+
+function switchChannel(next, fromHistory = false) {
+  if (state.channel === next || !Object.hasOwn(channels, next)) return;
+  if (!fromHistory) {
+    const url = new URL(location.href);
+    for (const key of ["q", "product", "offer"]) url.searchParams.delete(key);
+    if (next === "women") url.searchParams.set("channel", next);
+    else url.searchParams.delete("channel");
+    history.pushState(null, "", url);
+  }
+  closeProductDialog({ fromHistory: true });
+  if (elements.filterPanel.classList.contains("is-expanded")) setFilterPanelExpanded(false, { moveFocus: false });
+  state.channel = next;
+  state.snapshot = state.history = null;
+  state.changes = { added: null, drops: null, increases: null, missing: null };
+  state.products = [];
+  state.highlightsExpanded = false;
+  readUrlState();
+  renderChannel();
+  document.getElementById("deal-changes").classList.add("hidden");
+  renderSummary();
+  applyFilters();
+  elements.favoriteMissing.classList.add("hidden");
+  elements.statusTitle.textContent = "正在读取" + channels[next].name + "优惠…";
+  elements.updatedAt.textContent = "正在连接已发布数据";
+  loadData();
 }
 
 const changeLabels = { drops: "进一步降价", first_seen: "首次发现", returned: "重新出现" };
@@ -234,7 +301,7 @@ function renderDealChanges(snapshot, stale) {
     return;
   }
   if (changes.previous_generated_at === null) {
-    period.textContent = "首次建立比较基线，需等下一次成功采集后比较。";
+    period.textContent = `${channels[state.channel].name}首次建立比较基线，需等下一次成功采集后比较。`;
     return;
   }
   const buckets = Object.keys(changeLabels);
@@ -293,17 +360,22 @@ function changeRow(row) {
   </button></li>`;
 }
 
+function rememberFavorite(product) {
+  const code = String(product.item_code);
+  state.favoriteProducts.set(code, {
+    item_code: code, name: product.name,
+    current_min_price: product.current_min_price,
+    current_max_price: product.current_max_price,
+    discount_percent: product.discount_percent,
+    channels: [...new Set([state.channel, ...(product.channels || []), ...(state.favoriteProducts.get(code)?.channels || [])])],
+  });
+}
+
 function syncFavoriteProducts() {
   state.products.forEach((product) => {
     const code = String(product.item_code);
     if (!state.favorites.has(code)) return;
-    state.favoriteProducts.set(code, {
-      item_code: code,
-      name: product.name,
-      current_min_price: product.current_min_price,
-      current_max_price: product.current_max_price,
-      discount_percent: product.discount_percent,
-    });
+    rememberFavorite(product);
   });
   saveFavorites();
 }
@@ -338,6 +410,7 @@ function commitFilterControls() {
 
 function readUrlState() {
   const params = new URLSearchParams(location.search);
+  resetFilterControls();
   const values = {
     query: params.get("q") || "",
     source: params.get("source") || "all",
@@ -487,8 +560,8 @@ function renderProducts() {
   const hiddenCount = state.filtered.length - entries.length;
   const uniqueVisibleCount = Math.min(state.filtered.length, visible.length + hiddenCount);
   elements.resultCount.textContent = state.favoritesOnly
-    ? `已收藏 ${state.favorites.size} 款，当前符合条件 ${state.filtered.length} 款`
-    : `当前找到 ${state.filtered.length} 款，页面已展示 ${uniqueVisibleCount} 款`;
+    ? `共收藏 ${state.favorites.size} 款，${channels[state.channel].name}符合条件 ${state.filtered.length} 款`
+    : `${channels[state.channel].name}找到 ${state.filtered.length} 款，页面已展示 ${uniqueVisibleCount} 款`;
   elements.filterApply.textContent = `查看 ${state.filtered.length} 款结果`;
   elements.catalogSummary.textContent = entries.length
     ? hiddenCount
@@ -524,7 +597,8 @@ function renderCatalogDisclosure(hiddenCount) {
 
 function renderUnavailableFavorites() {
   const currentCodes = new Set(state.products.map((product) => String(product.item_code)));
-  const unavailable = [...state.favorites].filter((code) => !currentCodes.has(code));
+  const unavailable = [...state.favorites].filter((code) => !currentCodes.has(code)
+    && (state.favoriteProducts.get(code)?.channels || ["men"]).includes(state.channel));
   const show = state.favoritesOnly && unavailable.length > 0;
   elements.favoriteMissing.classList.toggle("hidden", !show);
   if (!show) {
@@ -690,15 +764,7 @@ function toggleFavorite(code) {
   } else {
     state.favorites.add(code);
     const product = state.products.find((item) => String(item.item_code) === code);
-    if (product) {
-      state.favoriteProducts.set(code, {
-        item_code: code,
-        name: product.name,
-        current_min_price: product.current_min_price,
-        current_max_price: product.current_max_price,
-        discount_percent: product.discount_percent,
-      });
-    }
+    if (product) rememberFavorite(product);
     showToast(`已收藏 ${code}，仅保存在此浏览器`);
   }
   saveFavorites();
@@ -750,14 +816,17 @@ async function shareLink({ title, text, url }) {
 
 function shareCurrentResults() {
   writeUrlState();
+  const url = new URL(location.href);
+  url.searchParams.delete("product");
+  url.searchParams.delete("offer");
   const shareableFilters = { ...currentFilters(), favoritesOnly: false };
   const shareableCount = filterProducts(state.products, shareableFilters, state.favorites).length;
   shareLink({
-    title: "优衣库男装优惠筛选条件",
+    title: `优衣库${channels[state.channel].name}优惠筛选条件`,
     text: state.favoritesOnly
       ? `此链接分享筛选条件，接收者预计看到 ${shareableCount} 款；本机收藏不会随链接分享。价格以页面标注的采集时间为准。`
       : `此链接分享筛选条件，当前找到 ${shareableCount} 款；打开时按最新发布数据重新计算。`,
-    url: location.href,
+    url: url.href,
   });
 }
 
@@ -941,6 +1010,11 @@ function showToast(message, { actionLabel = "", onAction = null } = {}) {
 }
 
 function handleAction(event) {
+  const channelButton = event.target.closest("[data-channel]");
+  if (channelButton) {
+    switchChannel(channelButton.dataset.channel);
+    return;
+  }
   if (event.target.closest("[data-toast-action]")) {
     const action = toastAction;
     elements.toast.classList.remove("is-visible");
@@ -1099,6 +1173,12 @@ function closeProductDialog({ fromHistory = false } = {}) {
 }
 
 window.addEventListener("popstate", () => {
+  const desired = channelFromUrl();
+  if (desired !== state.channel) {
+    state.filterHistoryReturn = null;
+    switchChannel(desired, true);
+    return;
+  }
   if (state.filterHistoryReturn) {
     const mode = state.filterHistoryReturn;
     state.filterHistoryReturn = null;
@@ -1112,7 +1192,7 @@ window.addEventListener("popstate", () => {
   readUrlState();
   if (state.products.length) applyFilters();
   const code = new URLSearchParams(location.search).get("product");
-  if (code) showProduct(code, { updateUrl: false });
+  if (code && state.snapshot) showProduct(code, { updateUrl: false });
   else closeProductDialog({ fromHistory: true });
 });
 
@@ -1130,6 +1210,7 @@ if ("serviceWorker" in navigator && location.protocol !== "file:") {
   window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
 }
 
+renderChannel();
 readUrlState();
 loadData();
 

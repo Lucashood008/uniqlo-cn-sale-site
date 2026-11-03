@@ -8,6 +8,9 @@
   --ink: #25221f;
   --muted: #635e56;
   --line: #ddd8cf;
+  --switch-track: #efebe4;
+  --switch-selected: #302c27;
+  --switch-label: #fffefa;
   --red: #b83524;
   --red-hover: #962b1c;
   --red-soft: #f9eae3;
@@ -32,6 +35,9 @@
     --ink: #f4f0e8;
     --muted: #c1bbb2;
     --line: #47413c;
+    --switch-track: #292522;
+    --switch-selected: #f5ede2;
+    --switch-label: #241f1c;
     --red: #ff9887;
     --red-hover: #ffb7a9;
     --red-soft: #452b24;
@@ -71,6 +77,10 @@ button, input, select, a { scroll-margin-block: calc(var(--filter-bar-height) + 
 .header-inner { min-height: 78px; display: flex; align-items: center; gap: 13px; }
 .brand-mark { width: 43px; height: 43px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 12px; background: #b83524; color: #fff; }
 .brand-copy h1 { margin: 0; font-size: 24px; line-height: 1.16; letter-spacing: -0.045em; font-weight: 750; }
+.channel-switch { display: inline-grid; grid-template-columns: repeat(2, 1fr); flex-shrink: 0; padding: 2px; border: 1px solid var(--line); border-radius: 9px; background: var(--switch-track); }
+.channel-switch button { min-width: 60px; min-height: 40px; padding: 6px 15px; border: 0; border-radius: 6px; background: transparent; font-size: 15px; white-space: nowrap; }
+.channel-switch button:hover { background: var(--surface-hover); }
+.channel-switch button[aria-pressed="true"] { background: var(--switch-selected); color: var(--switch-label); font-weight: 650; }
 .eyebrow, .section-kicker { margin: 0 0 4px; color: var(--muted); font-size: 10px; font-weight: 650; letter-spacing: 0.1em; }
 .header-link { padding: 10px 14px; border-radius: 10px; color: var(--muted); font-size: 14px; text-decoration: none; }
 .header-link:hover { background: var(--surface-secondary); color: var(--ink); }
@@ -317,11 +327,13 @@ main { padding: 0 0 64px; }
 @media (max-width: 680px) {
   :root { --toolbar-top: 6px; --filter-bar-height: 62px; }
   .header-inner, main { width: calc(100% - 24px); }
-  .header-inner { min-height: 65px; gap: 8px; }
+  .header-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 10px 0; }
   .brand-mark { width: 36px; height: 36px; border-radius: 9px; }
+  .channel-switch { grid-column: 1 / -1; grid-row: 2; }
+  .channel-switch button { min-height: 44px; }
   .brand-copy h1 { font-size: 21px; }
   .eyebrow, .header-link { display: none; }
-  .header-action { margin-left: auto; min-height: 44px; padding: 5px 9px; }
+  .header-action { grid-column: 3; grid-row: 1; margin-left: auto; min-height: 44px; padding: 5px 9px; }
   main { padding-top: 0; }
   .status-panel { gap: 6px; min-height: 42px; padding: 0; }
   .status-panel h2 { font-size: 12px; }
@@ -367,7 +379,7 @@ main { padding: 0 0 64px; }
   #deal-changes-period { grid-column: 1; font-size: 12px; margin: 0; }
   .change-buttons { grid-column: 1; grid-row: auto; gap: 0; margin-top: 3px; border-top: 1px solid var(--line); }
   #result-count { flex: 1; font-size: 12px; }
-  .gallery-heading h2 { gap: 7px; font-size: 23px; }
+  .gallery-heading h2 { flex: 0 0 auto; gap: 7px; font-size: 23px; }
   .gallery-heading h2 small { font-size: 12px; white-space: nowrap; }
   .gallery-heading > p { line-height: 1.4; }
 

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "uniqlo-sale-shell-v11";
+const CACHE_VERSION = "uniqlo-sale-shell-v12";
 const DATA_CACHE = "uniqlo-sale-data-v1";
 const APP_SHELL = [
   "./",
@@ -31,12 +31,8 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
-  const isData = url.pathname.endsWith("/data/latest.json")
-    || url.pathname.endsWith("/data/price_history.json")
-    || url.pathname.endsWith("/reports/changes.md");
-
-  if (isData) {
-    event.respondWith(networkFirst(event.request));
+  if (/\/(?:data\/(?:women\/)?(?:latest|price_history)\.json|reports\/(?:women\/)?changes\.md|(?:latest\.csv|LATEST\.md))$/.test(url.pathname)) {
+    event.respondWith(networkFirst(event.request, DATA_CACHE));
     return;
   }
   if (event.request.mode === "navigate") {
@@ -51,13 +47,8 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(cacheFirst(event.request));
 });
 
-async function networkFirst(request) {
-  const pathname = new URL(request.url).pathname;
-  const isData = pathname.endsWith("/data/latest.json")
-    || pathname.endsWith("/data/price_history.json")
-    || pathname.endsWith("/reports/changes.md");
-  // Keep the versioned UI shell separate from persistent product snapshots.
-  const cache = await caches.open(isData ? DATA_CACHE : CACHE_VERSION);
+async function networkFirst(request, cacheName = CACHE_VERSION) {
+  const cache = await caches.open(cacheName);
   try {
     const response = await fetch(request);
     if (response.ok) await cache.put(request, response.clone());
