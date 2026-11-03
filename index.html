@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#19191c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1b1917" media="(prefers-color-scheme: dark)">
     <meta name="color-scheme" content="light dark">
     <meta name="description" content="优衣库中国大陆男装优惠浏览、筛选与价格记录。">
     <meta name="robots" content="noindex, nofollow">
@@ -19,12 +19,17 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <div class="brand-mark" aria-hidden="true">优</div>
-        <div class="brand-copy">
-          <p class="eyebrow">UNIQLO CN SALE TRACKER</p>
-          <h1>男装优惠</h1>
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 10.8a2.6 2.6 0 1 1 4.1 2.1L18 14.2v2.4M18 16.6l12 7.3a1.3 1.3 0 0 1-.7 2.4H6.7a1.3 1.3 0 0 1-.7-2.4z"/></svg>
         </div>
-        <a class="header-link" href="#products">查看清单</a>
+        <div class="brand-copy">
+          <h1>优衣库男装折扣</h1>
+          <p class="eyebrow">中国大陆<span aria-hidden="true"> / </span>非官方价格追踪</p>
+        </div>
+        <nav class="header-nav" aria-label="页面导航">
+          <a class="header-link" href="#highlights-title">折扣榜</a>
+          <a class="header-link" href="#products">完整清单</a>
+        </nav>
         <button class="header-action" id="favorites-toggle" type="button" aria-pressed="false">
           <span aria-hidden="true">♡</span>
           <span>收藏</span>
@@ -36,12 +41,11 @@
     <main>
       <section class="status-panel" aria-labelledby="status-title">
         <div>
-          <p class="section-kicker">数据状态</p>
           <h2 id="status-title">正在读取最新优惠…</h2>
           <p class="muted" id="updated-at">正在连接已发布数据</p>
         </div>
         <button class="secondary-button" id="refresh-button" type="button">
-          刷新已发布数据
+          刷新
         </button>
       </section>
 
@@ -50,7 +54,7 @@
       <section class="deal-changes hidden" id="deal-changes" aria-labelledby="deal-changes-title">
         <div class="deal-changes-heading">
           <h2 id="deal-changes-title">本次变化</h2>
-          <span>全站 · 优惠至少 40%</span>
+          <span>全站优惠 ≥40%</span>
         </div>
         <p class="muted" id="deal-changes-period"></p>
         <div id="deal-changes-groups"></div>
@@ -58,18 +62,12 @@
 
       <div class="browse-region">
       <section class="discover-section" aria-labelledby="discover-title">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="section-kicker">FIND DEALS</p>
-            <h2 id="discover-title">查找优惠</h2>
-          </div>
-          <p id="result-count" aria-live="polite">正在整理商品…</p>
-        </div>
+        <h2 class="visually-hidden" id="discover-title">搜索和筛选优惠</h2>
 
         <form class="filter-panel" id="filters" role="search">
           <label class="search-field">
             <span>搜索商品</span>
-            <input id="search-input" type="search" placeholder="输入商品名称或编号" autocomplete="off">
+            <input id="search-input" type="search" placeholder="搜索商品名称或货号" autocomplete="off">
           </label>
           <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-fields">筛选</button>
           <button class="filter-backdrop" id="filter-backdrop" type="button" tabindex="-1" aria-label="关闭筛选面板"></button>
@@ -96,7 +94,7 @@
               </select>
             </label>
             <label>
-              <span>最低观测价不超过</span>
+              <span>现价预算</span>
               <select id="price-filter">
                 <option value="all">不限</option>
                 <option value="50">¥50以内</option>
@@ -122,17 +120,15 @@
 
         <div class="filter-actions">
           <div class="active-filters" id="active-filters" aria-live="polite"></div>
+          <p id="result-count" aria-live="polite">正在整理商品…</p>
           <button class="share-button" id="share-results" type="button">分享筛选条件</button>
         </div>
       </section>
 
       <section class="hero-section" aria-labelledby="highlights-title">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">TOP DEALS</p>
-            <h2 id="highlights-title">优惠幅度前12款</h2>
-          </div>
-          <p>TOP 为当前条件下的优惠排名；缺图会明确标注</p>
+        <div class="section-heading gallery-heading">
+          <h2 id="highlights-title">高折扣榜 <small id="highlight-total"></small></h2>
+          <p>按相对初上市价的优惠幅度排名</p>
         </div>
         <div class="highlight-grid" id="highlight-grid" aria-live="polite"></div>
         <div class="highlight-actions">
@@ -144,7 +140,6 @@
       <section class="catalog-section" id="products" aria-labelledby="catalog-title">
         <div class="section-heading catalog-heading">
           <div>
-            <p class="section-kicker">CATALOG</p>
             <h2 id="catalog-title">完整优惠清单</h2>
           </div>
           <p id="catalog-summary">首批显示60款，可继续加载</p>
@@ -219,7 +214,6 @@
       </details>
 
       <section class="data-note" aria-labelledby="data-note-title">
-        <p class="section-kicker">ABOUT THE DATA</p>
         <h2 id="data-note-title">数据口径</h2>
         <p>仅展示优惠幅度不低于40%的男装及男女同款。同一商品编号对应多个官网页面时归为一款，并在详情中保留各页面入口。</p>
         <p>价格和低价判断只代表本项目实际观测记录；“本次未检出”不等同于停售、售罄或永久退出优惠。实际价格、库存、颜色和尺码以优衣库官网或App为准。</p>

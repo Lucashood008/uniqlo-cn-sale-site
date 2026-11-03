@@ -147,7 +147,7 @@ function statusForSnapshot(snapshot) {
   if (Number.isNaN(date.getTime())) return { title: "已读取最近快照", stale: true };
   const hours = (Date.now() - date.getTime()) / 3_600_000;
   if (hours > 36) return { title: "最近数据可能已经过期", stale: true };
-  return { title: "最近一次采集成功", stale: false };
+  return { title: "采集成功", stale: false };
 }
 
 async function getJson(url) {
@@ -187,13 +187,13 @@ async function loadData({ announce = false } = {}) {
 
   const status = statusForSnapshot(state.snapshot);
   elements.statusTitle.textContent = status.title;
-  elements.updatedAt.textContent = `数据生成于 ${formatTime(state.snapshot.generated_at)}（北京时间）`;
+  elements.updatedAt.textContent = `${formatTime(state.snapshot.generated_at)}（北京时间）`;
   elements.statusTitle.closest(".status-panel").classList.toggle("is-stale", status.stale);
   renderDealChanges(snapshot, status.stale);
   renderSummary();
   applyFilters();
   elements.refresh.disabled = false;
-  elements.refresh.textContent = "刷新已发布数据";
+  elements.refresh.textContent = "刷新";
   if (state.pendingProduct) {
     showProduct(state.pendingProduct, { updateUrl: false });
     state.pendingProduct = null;
@@ -227,6 +227,7 @@ function renderDealChanges(snapshot, stale) {
   if (!section || !period || !groups) return;
   section.classList.remove("hidden");
   groups.replaceChildren();
+  period.removeAttribute("title");
   const changes = snapshot.deal_changes;
   if (!changes || changes.version !== 1 || changes.generated_at !== snapshot.generated_at) {
     period.textContent = "这批商品快照没有对应的分款变化记录。";
@@ -246,7 +247,10 @@ function renderDealChanges(snapshot, stale) {
   }
   const previous = formatTime(changes.previous_generated_at);
   const current = formatTime(changes.generated_at);
-  period.textContent = `${stale ? "最近发布的记录 · " : ""}${previous} → ${current}（北京时间）`;
+  const fullPeriod = `${stale ? "最近发布的记录 · " : ""}${previous} → ${current}（北京时间）`;
+  const dateRange = previous.slice(0, 10) === current.slice(0, 10)
+    ? `${previous} → ${current.slice(11)}`
+    : `${previous.slice(0, 10)} → ${current.slice(0, 10)}`;
   groups.innerHTML = `<div class="change-buttons" role="group" aria-label="按变化类型查看">${buckets.map((key) =>
     `<button type="button" data-change-group="${key}" aria-controls="deal-change-items" aria-expanded="false">${changeLabels[key]} <strong>${changes[key].length}</strong> 款</button>`
   ).join("")}</div><div id="deal-change-items"></div>`;
@@ -254,6 +258,8 @@ function renderDealChanges(snapshot, stale) {
   const buttons = groups.querySelector(".change-buttons");
   const items = groups.querySelector("#deal-change-items");
   function reveal(key) {
+    period.textContent = key ? fullPeriod : dateRange;
+    period.title = fullPeriod;
     for (const button of buttons.children) {
       button.setAttribute("aria-expanded", String(button.dataset.changeGroup === key));
     }
@@ -272,7 +278,7 @@ function renderDealChanges(snapshot, stale) {
     const button = event.target.closest("[data-change-group]");
     if (button) reveal(button.getAttribute("aria-expanded") === "true" ? null : button.dataset.changeGroup);
   });
-  reveal(buckets.find((key) => changes[key].length));
+  reveal(null);
 }
 
 function changeRow(row) {
@@ -428,6 +434,8 @@ function catalogEntries() {
 function renderHighlights() {
   const allItems = allHighlightItems();
   const items = visibleHighlightItems();
+  const totalLabel = document.querySelector("#highlight-total");
+  if (totalLabel) totalLabel.textContent = allItems.length ? `前 ${allItems.length} 款` : "";
   elements.highlightGrid.innerHTML = items.map((product, index) => {
     const code = escapeHtml(product.item_code);
     const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
@@ -444,8 +452,8 @@ function renderHighlights() {
           <span class="highlight-image-wrap">
             <img src="${imagePath}" alt="${escapeHtml(product.name)}" loading="lazy" data-image-fallback data-official-image="${officialImage}">
             <span class="image-fallback">暂无商品图<br>编号 ${code}</span>
-            <strong class="highlight-discount">${escapeHtml(product.discount_percent)}%</strong>
-            <span class="sequence-badge sequence-badge-top" aria-label="优惠排名第${index + 1}款">TOP ${String(index + 1).padStart(2, "0")}</span>
+            <strong class="highlight-discount">省 ${escapeHtml(product.discount_percent)}%</strong>
+            <span class="sequence-badge sequence-badge-top" aria-label="优惠排名第${index + 1}款">${String(index + 1).padStart(2, "0")}</span>
           </span>
           <span class="highlight-title"><span class="highlight-name">${escapeHtml(product.name)}</span></span>
         </button>
@@ -454,7 +462,7 @@ function renderHighlights() {
             <strong class="highlight-current-price">${priceLabel(product)}</strong>
             ${originalPriceMarkup}
           </div>
-          <button class="copy-code" type="button" data-copy="${code}" aria-label="复制商品编号 ${code}">${code}</button>
+          <button class="copy-code" type="button" data-copy="${code}" aria-label="复制商品编号 ${code}">${code}<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="9" height="10" rx="2"/><path d="M6 13H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1"/></svg></button>
         </div>
       </article>`;
   }).join("");
@@ -573,7 +581,7 @@ function renderActiveFilters() {
   if (filters.sort !== "discount") labels.push(["sort", filters.sort === "price-asc" ? "现价从低到高" : "现价从高到低"]);
   if (filters.favoritesOnly) labels.push(["favorites", "仅看收藏"]);
   if (!labels.length) {
-    elements.activeFilters.innerHTML = '<span class="filter-scope">当前显示全部符合门槛的商品</span>';
+    elements.activeFilters.replaceChildren();
     return;
   }
   elements.activeFilters.innerHTML = labels.map(([key, label]) => (
