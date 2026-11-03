@@ -48,12 +48,8 @@ export function groupProducts(products) {
       ...entry.genders,
       ...String(product.gender || "").split("、").filter(Boolean),
     ])];
-    entry.offers.push({
-      product_code: product.product_code,
-      url: product.url,
-      current_min_price: product.current_min_price,
-      current_max_price: product.current_max_price,
-    });
+    // Keep the original activity and prices together when filtering offers.
+    entry.offers.push(product);
   });
   return [...grouped.values()].sort(compareSortKeys);
 }
@@ -65,19 +61,23 @@ export function filterProducts(products, filters, favorites = new Set()) {
     ? Number.POSITIVE_INFINITY
     : Number(filters.maximumPrice);
 
-  const result = products.filter((product) => {
-    if (filters.favoritesOnly && !favorites.has(String(product.item_code))) return false;
-    if (Number(product.discount_percent) < minimumDiscount) return false;
-    if (Number(product.current_min_price) > maximumPrice) return false;
-    if (filters.source !== "all" && !(product.sale_types || []).includes(filters.source)) return false;
-    if (query) {
-      const haystack = [product.item_code, product.name, product.product_code]
-        .join(" ")
-        .toLocaleLowerCase("zh-CN");
-      if (!haystack.includes(query)) return false;
-    }
-    return true;
-  });
+  function matchesOffer(offer) {
+    if (!Number.isFinite(offer.discount_percent) || offer.discount_percent < minimumDiscount) return false;
+    if (!Number.isFinite(offer.current_min_price) || offer.current_min_price > maximumPrice) return false;
+    if (filters.source !== "all" && !(offer.sale_types || []).includes(filters.source)) return false;
+    if (!query) return true;
+    return [offer.item_code, offer.name, offer.product_code]
+      .join(" ").toLocaleLowerCase("zh-CN").includes(query);
+  }
+
+  const result = [];
+  for (const product of products) {
+    if (filters.favoritesOnly && !favorites.has(String(product.item_code))) continue;
+    // Offers are already ranked. Display, sort and link the best qualifying
+    // offer while retaining every original page for history and comparison.
+    const offer = product.offers.find(matchesOffer);
+    if (offer) result.push({ ...product, ...offer });
+  }
 
   if (filters.sort === "price-asc") {
     return result.sort((a, b) => Number(a.current_min_price) - Number(b.current_min_price) || compareSortKeys(a, b));

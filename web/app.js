@@ -189,6 +189,7 @@ async function loadData({ announce = false } = {}) {
   elements.statusTitle.textContent = status.title;
   elements.updatedAt.textContent = `数据生成于 ${formatTime(state.snapshot.generated_at)}（北京时间）`;
   elements.statusTitle.closest(".status-panel").classList.toggle("is-stale", status.stale);
+  renderDealChanges(snapshot, status.stale);
   renderSummary();
   applyFilters();
   elements.refresh.disabled = false;
@@ -215,6 +216,75 @@ async function loadData({ announce = false } = {}) {
   if (historyResult.status !== "fulfilled") {
     showNotice("商品清单已加载；价格历史暂时不可用。", "warning");
   }
+}
+
+const changeLabels = { drops: "进一步降价", first_seen: "首次发现", returned: "重新出现" };
+
+function renderDealChanges(snapshot, stale) {
+  const section = document.querySelector("#deal-changes");
+  const period = document.querySelector("#deal-changes-period");
+  const groups = document.querySelector("#deal-changes-groups");
+  if (!section || !period || !groups) return;
+  section.classList.remove("hidden");
+  groups.replaceChildren();
+  const changes = snapshot.deal_changes;
+  if (!changes || changes.version !== 1 || changes.generated_at !== snapshot.generated_at) {
+    period.textContent = "这批商品快照没有对应的分款变化记录。";
+    return;
+  }
+  if (changes.previous_generated_at === null) {
+    period.textContent = "首次建立比较基线，需等下一次成功采集后比较。";
+    return;
+  }
+  const buckets = Object.keys(changeLabels);
+  const validBuckets = buckets.every((key) => Array.isArray(changes[key]) && changes[key].every((row) =>
+    row && row.item_code && row.product_code && row.name && Number.isFinite(row.current_price)
+      && (key !== "drops" || (Number.isFinite(row.previous_price) && row.previous_price > row.current_price))));
+  if (!validBuckets || !(Date.parse(changes.previous_generated_at) < Date.parse(changes.generated_at))) {
+    period.textContent = "这批变化记录无法比较。";
+    return;
+  }
+  const previous = formatTime(changes.previous_generated_at);
+  const current = formatTime(changes.generated_at);
+  period.textContent = `${stale ? "最近发布的记录 · " : ""}${previous} → ${current}（北京时间）`;
+  groups.innerHTML = `<div class="change-buttons" role="group" aria-label="按变化类型查看">${buckets.map((key) =>
+    `<button type="button" data-change-group="${key}" aria-controls="deal-change-items" aria-expanded="false">${changeLabels[key]} <strong>${changes[key].length}</strong> 款</button>`
+  ).join("")}</div><div id="deal-change-items"></div>`;
+
+  const buttons = groups.querySelector(".change-buttons");
+  const items = groups.querySelector("#deal-change-items");
+  function reveal(key) {
+    for (const button of buttons.children) {
+      button.setAttribute("aria-expanded", String(button.dataset.changeGroup === key));
+    }
+    if (!key) {
+      items.replaceChildren();
+      return;
+    }
+    const rows = changes[key];
+    const list = (entries) => `<ul class="change-list" aria-label="${changeLabels[key]}">${entries.map(changeRow).join("")}</ul>`;
+    items.innerHTML = rows.length ? list(rows.slice(0, 3)) : `<p class="muted">本次没有${changeLabels[key]}的达标商品。</p>`;
+    if (rows.length > 3) {
+      items.insertAdjacentHTML("beforeend", `<details class="change-more"><summary>查看其余 ${rows.length - 3} 款</summary>${list(rows.slice(3))}</details>`);
+    }
+  }
+  buttons.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-change-group]");
+    if (button) reveal(button.getAttribute("aria-expanded") === "true" ? null : button.dataset.changeGroup);
+  });
+  reveal(buckets.find((key) => changes[key].length));
+}
+
+function changeRow(row) {
+  const code = escapeHtml(row.item_code);
+  const name = escapeHtml(row.name);
+  const dropped = Number.isFinite(row.previous_price) && row.previous_price > row.current_price;
+  const previous = dropped ? `<small>¥${money(row.previous_price)} →</small>` : "";
+  const saving = dropped ? `<small>降 ¥${money(row.previous_price - row.current_price)}</small>` : "";
+  return `<li><button type="button" class="change-item" data-open="${code}" data-offer="${escapeHtml(row.product_code)}">
+    <span class="change-item-name"><strong>${name}</strong> <small>${code}</small></span>
+    <span class="change-item-price">${previous}<strong>¥${money(row.current_price)}</strong>${saving}<span aria-hidden="true">›</span></span>
+  </button></li>`;
 }
 
 function syncFavoriteProducts() {
@@ -292,10 +362,12 @@ function writeUrlState() {
   history.replaceState(history.state, "", `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`);
 }
 
-function updateProductParam(code = "", { push = false } = {}) {
+function updateProductParam(code = "", { push = false, offerCode = "" } = {}) {
   const params = new URLSearchParams(location.search);
   if (code) params.set("product", code);
   else params.delete("product");
+  if (code && offerCode) params.set("offer", offerCode);
+  else params.delete("offer");
   const url = `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`;
   if (push) history.pushState({ uniqloProduct: code }, "", url);
   else history.replaceState(history.state, "", url);
@@ -681,11 +753,21 @@ function shareCurrentResults() {
   });
 }
 
+function productForDetail(code, offerCode) {
+  const group = state.filtered.find((item) => String(item.item_code) === code)
+    || state.products.find((item) => String(item.item_code) === code);
+  if (!group) return null;
+  const requested = offerCode && group.offers.find((item) => item.product_code === offerCode);
+  const offer = requested || group.offers.find((item) => item.product_code === group.product_code);
+  return { ...group, ...offer };
+}
+
 function shareProduct(code) {
-  const product = state.products.find((item) => String(item.item_code) === code);
+  const product = productForDetail(code, elements.dialog.dataset.offer);
   if (!product) return;
   const url = new URL(location.href);
   url.searchParams.set("product", code);
+  url.searchParams.set("offer", product.product_code);
   shareLink({
     title: product.name,
     text: `${product.name}，${priceLabel(product)}，优惠 ${product.discount_percent}%。价格以页面标注的采集时间为准。`,
@@ -693,8 +775,9 @@ function shareProduct(code) {
   });
 }
 
-function showProduct(code, { updateUrl = true } = {}) {
-  const product = state.products.find((item) => String(item.item_code) === code);
+function showProduct(code, { updateUrl = true, offerCode = "" } = {}) {
+  const requestedOffer = offerCode || (!updateUrl && new URLSearchParams(location.search).get("offer"));
+  const product = productForDetail(code, requestedOffer);
   if (!product) {
     showMissingProduct(code, { updateUrl });
     return;
@@ -705,22 +788,24 @@ function showProduct(code, { updateUrl = true } = {}) {
   const favorite = state.favorites.has(code);
   const imagePath = `./assets/highlights/${encodeURIComponent(product.product_code)}.jpg`;
   const officialImage = escapeHtml(officialImageUrl(product));
-  const primaryOffer = product.offers[0];
   const observedRange = history.length
     ? `${escapeHtml(history[0].date)} 至 ${escapeHtml(history.at(-1).date)}`
     : "暂无记录";
 
   elements.dialogTitle.textContent = product.name;
+  elements.dialog.dataset.offer = product.product_code;
   elements.dialogContent.innerHTML = `
     <div class="detail-product">
       <img class="detail-image" src="${imagePath}" alt="${escapeHtml(product.name)}" data-detail-image data-official-image="${officialImage}">
       <div>
         <p class="detail-price-label">当前观测价格${Number(product.current_max_price) > Number(product.current_min_price) ? "区间" : ""}</p>
         <p class="detail-price">${priceLabel(product)}</p>
+        <p class="detail-updated">${escapeHtml(product.sale_types.join("、"))} · 当前展示报价</p>
+        ${requestedOffer && requestedOffer !== product.product_code ? '<p class="detail-footnote">分享的官网入口本次未检出，以下显示该货号的其他报价。</p>' : ""}
         <p class="detail-updated">数据更新于 ${escapeHtml(formatTime(state.snapshot?.generated_at))}（北京时间）</p>
         <button class="copy-code" type="button" data-copy="${escapeHtml(code)}">商品编号 ${escapeHtml(code)}</button>
         <div class="detail-actions">
-          ${primaryOffer ? `<a class="official-button" href="${escapeHtml(primaryOffer.url)}" target="_blank" rel="noopener noreferrer">前往官网查看</a>` : ""}
+          <a class="official-button" href="${escapeHtml(product.url)}" target="_blank" rel="noopener noreferrer">前往官网查看此报价</a>
           <button class="detail-share" type="button" data-share-product="${escapeHtml(code)}">分享商品</button>
         </div>
       </div>
@@ -741,14 +826,14 @@ function showProduct(code, { updateUrl = true } = {}) {
     <details class="offer-panel">
       <summary>查看 ${product.offers.length} 个官网页面入口</summary>
       <div class="offer-list">
-        ${product.offers.map((offer, index) => `<a href="${escapeHtml(offer.url)}" target="_blank" rel="noopener noreferrer">官网入口 ${index + 1}<span>¥${money(offer.current_min_price)}${Number(offer.current_max_price) > Number(offer.current_min_price) ? `–¥${money(offer.current_max_price)}` : ""} · ${escapeHtml(offer.product_code)}</span></a>`).join("")}
+        ${product.offers.map((offer, index) => `<a href="${escapeHtml(offer.url)}" target="_blank" rel="noopener noreferrer">官网入口 ${index + 1}${offer.product_code === product.product_code ? " · 当前展示" : ""}<span>${escapeHtml(offer.sale_types.join("、"))} · ${priceLabel(offer)} · ${escapeHtml(offer.product_code)}</span></a>`).join("")}
       </div>
     </details>
     <p class="detail-footnote">${escapeHtml(product.sale_types.join("、"))} · ${escapeHtml(product.genders.join("、"))}。价格、库存、颜色和尺码以官网为准；本站为非官方项目。</p>`;
   const detailImage = elements.dialogContent.querySelector("[data-detail-image]");
   if (detailImage) bindImageFallback(detailImage, () => { detailImage.hidden = true; });
   if (!elements.dialog.open) elements.dialog.showModal();
-  if (updateUrl) updateProductParam(code, { push: true });
+  if (updateUrl) updateProductParam(code, { push: true, offerCode: product.product_code });
 }
 
 function showMissingProduct(code, { updateUrl = true } = {}) {
@@ -877,11 +962,11 @@ function handleAction(event) {
   const favorite = event.target.closest("[data-favorite]");
   if (favorite) {
     toggleFavorite(favorite.dataset.favorite);
-    if (elements.dialog.open) showProduct(favorite.dataset.favorite);
+    if (elements.dialog.open) showProduct(favorite.dataset.favorite, { updateUrl: false, offerCode: elements.dialog.dataset.offer });
     return;
   }
   const open = event.target.closest("[data-open]");
-  if (open) showProduct(open.dataset.open);
+  if (open) showProduct(open.dataset.open, { offerCode: open.dataset.offer });
   if (event.target.closest("[data-clear-filters]")) clearFilters();
 }
 

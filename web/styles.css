@@ -91,6 +91,20 @@ main { padding: 20px 0 64px; }
 .secondary-button:hover, .clear-button:hover, .load-more:hover, .share-button:hover, .filter-toggle:hover, .detail-share:hover, .detail-favorite:hover { background: var(--surface-hover); }
 .notice { margin-top: 12px; padding: 12px 16px; border: 1px solid var(--amber); border-radius: 13px; background: var(--warning-bg); font-size: 13px; }
 .notice.error { border-color: var(--red); background: var(--red-soft); }
+.deal-changes { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.deal-changes-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+.deal-changes-heading h2 { margin: 0; font-size: 19px; line-height: 1.4; }
+.deal-changes-heading span, .change-item small { color: var(--muted); font-size: 12px; }
+.change-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.change-buttons button { min-height: 40px; padding: 6px 11px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font-size: 13px; }
+.change-buttons button[aria-expanded="true"] { border-color: var(--red); background: var(--red-soft); color: var(--red); }
+.change-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.change-item { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px 16px; width: 100%; min-height: 44px; padding: 8px 4px; border: 0; border-top: 1px solid var(--line); background: transparent; text-align: left; font-size: 14px; }
+.change-item:hover { background: var(--surface-hover); }
+.change-item-name { flex: 1 1 190px; overflow-wrap: anywhere; }
+.change-item-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-variant-numeric: tabular-nums; }
+.change-item-price strong { color: var(--red); }
+.change-more summary { width: fit-content; min-height: 40px; padding: 8px 4px; color: var(--muted); cursor: pointer; font-size: 13px; }
 .browse-region { margin-top: 24px; }
 .discover-section { display: contents; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 16px; }
@@ -293,6 +307,8 @@ main { padding: 20px 0 64px; }
   .status-panel .muted { font-size: 10px; }
   .status-panel .secondary-button { flex-shrink: 0; width: 88px; min-height: 40px; padding: 6px; font-size: 10px; }
   .browse-region { margin-top: 20px; }
+  .deal-changes { padding: 12px; }
+  .change-buttons button { min-height: 44px; padding-inline: 8px; }
   .section-heading { gap: 12px; align-items: start; }
   .section-heading h2 { font-size: 21px; }
   .section-heading > p { max-width: 130px; font-size: 10px; text-align: right; }
