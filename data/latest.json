@@ -1,27 +1,36 @@
 {
-  "generated_at": "2026-11-03T21:45:09+08:00",
+  "generated_at": "2026-11-04T14:13:05+08:00",
   "deal_changes": {
     "version": 1,
-    "previous_generated_at": "2026-11-03T20:32:35+08:00",
-    "generated_at": "2026-11-03T21:45:09+08:00",
+    "previous_generated_at": "2026-11-03T21:45:09+08:00",
+    "generated_at": "2026-11-04T14:13:05+08:00",
     "drops": [],
     "first_seen": [],
-    "returned": []
+    "returned": [
+      {
+        "item_code": "487571",
+        "product_code": "u0000000070412",
+        "name": "漫画UT集英社创立100周年UT短袖T恤足球小将",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000070412",
+        "current_price": 59.0,
+        "previous_price": null
+      }
+    ]
   },
   "scope": "adult-men-inclusive-v2",
   "scope_label": "男装（含男女同款）",
   "channel": "men",
   "counts": {
     "限时特优": 53,
-    "超值精选": 282
+    "超值精选": 273
   },
-  "total": 335,
-  "unique_items": 297,
-  "display_records": 202,
-  "display_items": 175,
+  "total": 326,
+  "unique_items": 292,
+  "display_records": 192,
+  "display_items": 169,
   "display_counts": {
     "限时特优": 0,
-    "超值精选": 175
+    "超值精选": 169
   },
   "products": [
     {
@@ -288,33 +297,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000074998",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000074998/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000075316",
-      "item_code": "484875",
-      "name": "廓形长裤",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 299.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 66.9,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075316",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075316/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000067254",
@@ -826,33 +808,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067013",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067013/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000065216",
-      "item_code": "480023",
-      "name": "souffle yarn舒芙蕾针织开衫/长袖舒芙蕾毛衣毛衫",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2025年冬季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 249.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 60.2,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065216",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000065216/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000067334",
@@ -1390,33 +1345,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075883/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000075899",
-      "item_code": "475387",
-      "name": "防晒衣DRY-EX速干高弹力拉链连帽开衫",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2025年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 199.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 50.3,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075899",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075899/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000073959",
       "item_code": "475387",
       "name": "防晒衣DRY-EX速干高弹力拉链连帽开衫",
@@ -1550,32 +1478,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000072033",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000072033/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000065846",
-      "item_code": "481444",
-      "name": "柔滑摇粒绒舒适束脚裤/长裤裤子",
-      "gender": "男装",
-      "sex": "男装",
-      "channels": [
-        "men"
-      ],
-      "season": "2025年冬季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 199.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 50.3,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065846",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000065846/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000069814",
@@ -2143,33 +2045,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000070363/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000066655",
-      "item_code": "484337",
-      "name": "卫衣/长袖运动衫",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2025年秋季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 199.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 50.3,
-      "sale_begin": "2026-03-20 08:00",
-      "sale_end": "2026-03-26 23:29",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000066655",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000066655/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000068914",
       "item_code": "485265",
       "name": "牛津纺箱型条纹衬衫",
@@ -2651,33 +2526,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069773/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000073746",
-      "item_code": "482432",
-      "name": "法国麻条纹衬衫/长袖",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 299.0,
-      "current_min_price": 149.0,
-      "current_max_price": 149.0,
-      "discount_percent": 50.2,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000073746",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000073746/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000075897",
       "item_code": "482437",
       "name": "法国麻衬衫/长袖",
@@ -2945,33 +2793,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069755",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069755/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000075187",
-      "item_code": "484330",
-      "name": "男士女士休闲鞋",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年春季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 399.0,
-      "current_min_price": 199.0,
-      "current_max_price": 199.0,
-      "discount_percent": 50.1,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075187",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075187/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000076330",
@@ -4268,33 +4089,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000066897/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000076316",
-      "item_code": "485038",
-      "name": "UT Yu Nagaba印花T恤/短袖T恤",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 99.0,
-      "current_min_price": 59.0,
-      "current_max_price": 59.0,
-      "discount_percent": 40.4,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000076316",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000076316/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000067113",
       "item_code": "485043",
       "name": "UT MAGIC FOR ALL印花T恤/短袖T恤",
@@ -4347,33 +4141,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067135",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067135/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000066716",
-      "item_code": "485062",
-      "name": "UT NY POP ART印花T恤/短袖T恤",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 99.0,
-      "current_min_price": 59.0,
-      "current_max_price": 59.0,
-      "discount_percent": 40.4,
-      "sale_begin": "2026-07-17 08:00",
-      "sale_end": "2026-07-23 23:59",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000066716",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000066716/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000066693",
@@ -4590,33 +4357,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000068859",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000068859/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000069518",
-      "item_code": "486154",
-      "name": "UT 泰特美术馆系列印花T恤/短袖T恤",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 99.0,
-      "current_min_price": 59.0,
-      "current_max_price": 59.0,
-      "discount_percent": 40.4,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069518",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069518/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000071499",
@@ -4862,6 +4602,33 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000070432/main/first/561/1.jpg"
     },
     {
+      "product_code": "u0000000070412",
+      "item_code": "487571",
+      "name": "漫画UT集英社创立100周年UT短袖T恤足球小将",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2026年夏季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 99.0,
+      "current_min_price": 59.0,
+      "current_max_price": 59.0,
+      "discount_percent": 40.4,
+      "sale_begin": "2026-04-30 00:00",
+      "sale_end": "2026-05-07 23:59",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000070412",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000070412/main/first/561/1.jpg"
+    },
+    {
       "product_code": "u0000000070416",
       "item_code": "487572",
       "name": "漫画UT集英社创立100周年UT短袖T恤圣斗士星矢",
@@ -5103,33 +4870,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000071522",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000071522/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000073557",
-      "item_code": "489151",
-      "name": "UT Disney x F1®印花T恤/短袖T恤",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 99.0,
-      "current_min_price": 59.0,
-      "current_max_price": 59.0,
-      "discount_percent": 40.4,
-      "sale_begin": "2026-07-03 08:00",
-      "sale_end": "2026-07-09 23:59",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000073557",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000073557/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000073516",
@@ -6145,6 +5885,32 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000074788",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000074788/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000067793",
+      "item_code": "482616",
+      "name": "袜子",
+      "gender": "男装",
+      "sex": "男装",
+      "channels": [
+        "men"
+      ],
+      "season": "2026年春季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 27.0,
+      "current_min_price": 19.0,
+      "current_max_price": 19.0,
+      "discount_percent": 29.6,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067793",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067793/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000069095",
