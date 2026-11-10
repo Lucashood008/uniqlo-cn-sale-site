@@ -1,6 +1,6 @@
 # 优衣库中国大陆女装当前打折商品
 
-更新时间：2026-11-09 14:20（北京时间）  
+更新时间：2026-11-10 15:13（北京时间）  
 筛选范围：女装（含男女同款）  
 网页仅展示优惠幅度不低于 **40%** 的商品。
 
@@ -10,20 +10,20 @@
 
 | 展示款数 | 展示记录 | 限时特优（展示） | 超值精选（展示） | 最大优惠 |
 |---:|---:|---:|---:|---:|
-| 265款 | 300条 | 0款 | 265款 | 73.8% |
+| 267款 | 299条 | 0款 | 267款 | 73.8% |
 
-完整采集共 **498** 条记录、**450** 个商品编号；完整记录可下载 [latest.csv](latest.csv)。同一商品编号可能对应不同商品页面，展示时归为一款并保留各页面入口。
+完整采集共 **507** 条记录、**461** 个商品编号；完整记录可下载 [latest.csv](latest.csv)。同一商品编号可能对应不同商品页面，展示时归为一款并保留各页面入口。
 
 ## 今日变化
 
-对比 2026-11-08T13:57:02+08:00 至 2026-11-09T14:20:29+08:00 两次成功采集。在优惠至少 40% 的商品中，进一步降价 0 款，首次发现 2 款，重新出现 7 款。
+对比 2026-11-09T14:20:29+08:00 至 2026-11-10T15:13:02+08:00 两次成功采集。在优惠至少 40% 的商品中，进一步降价 4 款，首次发现 2 款，重新出现 6 款。
 
 全量官网入口相对上次成功采集：
 
-- 新增优惠：16 条（含重新检出的入口）
-- 降价：0 条
+- 新增优惠：26 条（含重新检出的入口）
+- 降价：4 条
 - 涨价：0 条
-- 本次未检出：10 条
+- 本次未检出：17 条
 
 [查看变化明细](../reports/women/changes.md)。“本次未检出”只表示本次优惠列表未返回，不直接认定商品永久退出活动。
 
@@ -43,7 +43,7 @@
 以下折扣区间默认只展开60%及以上，其余可按需展开；合计覆盖全部达到40%展示门槛的商品款。
 
 <details open>
-<summary><strong>60%及以上（76款）</strong></summary>
+<summary><strong>60%及以上（72款）</strong></summary>
 
 | 商品编号 | 商品名称 | 优惠幅度 | 原价 | 现价 | 类别 | 性别 |
 |---|---|---:|---:|---:|---|---|
@@ -62,7 +62,7 @@
 | 484808 | [宽松廓形牛仔裤/弯刀镰刀裤偏短款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075019) | 66.9% | ¥299 | ¥99 | 超值精选 | 女装 |
 | 489217 | [休闲印花连衣裙/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073217) | 66.9% | ¥299 | ¥99 | 超值精选 | 女装 |
 | 487093 | [袜子/3双装](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073434) | 63.3% | ¥79 | ¥29 | 超值精选 | 女装 |
-| 488960 | [高筒袜/2双装](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076724) | 63.3% | ¥79 | ¥29 | 超值精选 | 女装 |
+| 483807 | [休闲短茄克/巴恩风外套夹克484664](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067254)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067254) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076544)</sub> | 62.7% | ¥399 | ¥149 | 超值精选 | 女装 |
 | 484330 | [男士女士休闲鞋](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069755) | 62.7% | ¥399 | ¥149 | 超值精选 | 男装 |
 | 484709 | [防风立领茄克/外套夹克](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067703) | 62.7% | ¥399 | ¥149 | 超值精选 | 女装 |
 | 479219 | [HEATTECH针织连裤袜/保暖衣打底裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069175) | 60.6% | ¥99 | ¥39 | 超值精选 | 女装 |
@@ -70,15 +70,12 @@
 | 486828 | [UT K-POP Group BM印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000068861) | 60.6% | ¥99 | ¥39 | 超值精选 | 女装 |
 | 488131 | [UT Disney x F1®印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071501) | 60.6% | ¥99 | ¥39 | 超值精选 | 男装 |
 | 489252 | [UT Disney x F1®印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073537) | 60.6% | ¥99 | ¥39 | 超值精选 | 女装 |
-| 489254 | [UT Disney x F1®印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073540) | 60.6% | ¥99 | ¥39 | 超值精选 | 女装 |
 | 482302 | [AIRism POLO衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074797)<br><sub>同编号 3 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074797) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073299) [3](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076018)</sub> | 60.4% | ¥149 | ¥59 | 超值精选 | 男装 |
 | 482303 | [AIRism POLO开衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069777) | 60.4% | ¥149 | ¥59 | 超值精选 | 男装 |
 | 482304 | [快干POLO衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073737)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073737) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074793)</sub> | 60.4% | ¥149 | ¥59 | 超值精选 | 男装 |
 | 482305 | [DRY-EX速干POLO衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073739) | 60.4% | ¥149 | ¥59 | 超值精选 | 男装 |
 | 484849 | [牛津纺箱型衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069642)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069642) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076338)</sub> | 60.4% | ¥149 | ¥59 | 超值精选 | 女装 |
-| 484850 | [牛津纺箱型条纹衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069654) | 60.4% | ¥149 | ¥59 | 超值精选 | 女装 |
 | 488448 | [休闲宽松短衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071065) | 60.4% | ¥149 | ¥59 | 超值精选 | 女装 |
-| 465784 | [AIRism高弹力运动束脚裤/超弹省心裤凉感](https://www.uniqlo.cn/product-detail.html?productCode=u0000000051962) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 474479 | [AIRism高弹力运动束脚裤/弹力长裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000060134) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 475384 | [DRY-EX速干高弹力运动长裤束脚超弹裤常规款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000059633) | 60.3% | ¥199 | ¥79 | 超值精选 | 男装 |
 | 479241 | [souffle yarn舒芙蕾围巾](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066217) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
@@ -92,8 +89,6 @@
 | 483766 | [打褶裙裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069555)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069555) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076742)</sub> | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 483874 | [麻混纺条纹立领衬衫/七分袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000068878) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 484000 | [POLO领针织衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069620) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
-| 484887 | [拼接收腰连衣裙/无袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075336) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
-| 485473 | [开叉裙裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070742) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 485744 | [高弹力运动长裤/DRY-EX速干](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074348) | 60.3% | ¥199 | ¥79 | 超值精选 | 男装 |
 | 487286 | [拼接层叠连衣裙/无袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075186)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075186) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073395)</sub> | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 487528 | [花式半开领条纹衬衫/7分袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000072824) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
@@ -102,10 +97,11 @@
 | 488182 | [格纹长衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075806) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 488816 | [打褶迷你裙裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073839) | 60.3% | ¥199 | ¥79 | 超值精选 | 女装 |
 | 488997 | [宽松短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073215) | 60.3% | ¥199 | ¥79 | 超值精选 | 男装 |
+| 489142 | [打褶短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073214) | 60.3% | ¥199 | ¥79 | 超值精选 | 男装 |
 | 475560 | [修身无褶长裤休闲裤裤子直筒通勤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067013) | 60.2% | ¥249 | ¥99 | 超值精选 | 男装 |
 | 480023 | [souffle yarn舒芙蕾针织开衫/长袖舒芙蕾毛衣毛衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065216) | 60.2% | ¥249 | ¥99 | 超值精选 | 男装 |
+| 484399 | [弹力快干运动长裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071532) | 60.2% | ¥249 | ¥99 | 超值精选 | 男装 |
 | 484706 | [层叠长裙/加长款半身裙裙子](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073121) | 60.2% | ¥249 | ¥99 | 超值精选 | 女装 |
-| 484820 | [层叠长裙/半身裙裙子常规款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074346)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074346) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070102)</sub> | 60.2% | ¥249 | ¥99 | 超值精选 | 女装 |
 | 485273 | [休闲廓形长裤/弯刀镰刀裤系腰带裤子](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069192)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069192) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076318)</sub> | 60.2% | ¥249 | ¥99 | 超值精选 | 女装 |
 | 485593 | [休闲裙裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070358) | 60.2% | ¥249 | ¥99 | 超值精选 | 女装 |
 | 486098 | [层叠长裙/加长款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074174) | 60.2% | ¥249 | ¥99 | 超值精选 | 女装 |
@@ -127,30 +123,33 @@
 </details>
 
 <details>
-<summary><strong>50%～59%（63款）</strong></summary>
+<summary><strong>50%～59%（69款）</strong></summary>
 
 | 商品编号 | 商品名称 | 优惠幅度 | 原价 | 现价 | 类别 | 性别 |
 |---|---|---:|---:|---:|---|---|
-| 481600 | [休闲连帽短外套](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067552)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067552) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073301)</sub> | 57.3% | ¥349 | ¥149 | 超值精选 | 女装 |
+| 481600 | [休闲连帽短外套](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067552) | 57.3% | ¥349 | ¥149 | 超值精选 | 女装 |
+| 487846 | [仿皮宽松衬衫式茄克](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074511) | 55.7% | ¥449 | ¥199 | 超值精选 | 女装 |
 | 481112 | [羽绒蓬松茄克](https://www.uniqlo.cn/product-detail.html?productCode=u0000000068532) | 55.6% | ¥899 | ¥399 | 超值精选 | 女装 |
-| 484203 | [宽松插肩袖T恤/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073976) | 54.3% | ¥129 | ¥59 | 超值精选 | 男装 |
 | 484803 | [快干华夫格圆领T恤/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069778) | 54.3% | ¥129 | ¥59 | 超值精选 | 男装 |
+| 485256 | [HEATTECH针织帽子](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067753) | 54.3% | ¥129 | ¥59 | 超值精选 | 男装 |
 | 485454 | [宽松撞色T恤/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069629)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069629) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073958)</sub> | 54.3% | ¥129 | ¥59 | 超值精选 | 男装 |
 | 485455 | [宽松亨利领T恤/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069641) | 54.3% | ¥129 | ¥59 | 超值精选 | 男装 |
 | 488145 | [棉质无钢圈文胸](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073372) | 54.3% | ¥129 | ¥59 | 超值精选 | 女装 |
 | 492915 | [快干休闲短裙](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075139) | 54.3% | ¥129 | ¥59 | 超值精选 | 女装 |
 | 479201 | [莫代尔混纺短裤/普通腰三角内裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000064815) | 52.5% | ¥40 | ¥19 | 超值精选 | 女装 |
 | 479202 | [莫代尔混纺短裤/低腰三角内裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000064817) | 52.5% | ¥40 | ¥19 | 超值精选 | 女装 |
+| 484457 | [罗纹圆领短T恤/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070732) | 50.6% | ¥79 | ¥39 | 超值精选 | 女装 |
 | 474529 | [棉麻条纹立领衬衫/短袖衬衣开衫休闲](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075883) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
-| 475387 | [防晒衣DRY-EX速干高弹力拉链连帽开衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075899)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075899) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073959)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
+| 475387 | [防晒衣DRY-EX速干高弹力拉链连帽开衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073959) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 479137 | [灯芯绒舒适九分裤/休闲裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000064698) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 479235 | [souffle yarn舒芙蕾圆领针织衫/长袖舒芙蕾毛衣毛衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065213)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065213) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070513)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
+| 479974 | [牛津纺箱型衬衫/长袖衬衣空调衫合作款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065153)<br><sub>近30日观测新低 · 近90日观测新低</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
 | 481225 | [法兰绒格子衬衫/长袖衬衣休闲纯棉薄外套](https://www.uniqlo.cn/product-detail.html?productCode=u0000000064292) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 481725 | [可机洗针织polo衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069814) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482170 | [麻棉短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070395) | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
 | 482308 | [卫衣/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067415) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482479 | [莫代尔混纺开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070119) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
-| 482480 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075319)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075319) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070092)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
+| 482480 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070092)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070092) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075319)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482481 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073747)<br><sub>同编号 3 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073747) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075321) [3](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070073)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482483 | [莫代尔混纺印花开领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070077)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070077) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075322)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 482485 | [棉麻立领衬衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075900) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
@@ -164,20 +163,24 @@
 | 486582 | [优质长绒棉条纹衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076897) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 486602 | [法兰绒格子衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074504) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 486614 | [易打理休闲衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000077141) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
-| 487511 | [DRY-EX速干高弹力防紫外线连帽开衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075898)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075898) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073977)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
+| 487511 | [DRY-EX速干高弹力防紫外线连帽开衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073977)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073977) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075898)</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 487585 | [纽扣领卫衣](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073844) | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
 | 488009 | [裹身迷你裙裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075655) | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
+| 488520 | [牛津纺箱型衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074589)<br><sub>近30日观测新低 · 近90日观测新低</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
+| 488522 | [牛津纺箱型条纹衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074590)<br><sub>近30日观测新低 · 近90日观测新低</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
 | 488722 | [可机洗罗纹针织连衣裙/无袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000072896) | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
 | 488790 | [优质长绒棉条纹衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074183) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
 | 488793 | [易打理休闲格子衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000077138) | 50.3% | ¥199 | ¥99 | 超值精选 | 男装 |
+| 491380 | [牛津纺箱型条纹衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074980)<br><sub>近30日观测新低 · 近90日观测新低</sub> | 50.3% | ¥199 | ¥99 | 超值精选 | 女装 |
+| 469875 | [高级轻型羽绒便携式背心/轻暖便携羽绒马甲478576](https://www.uniqlo.cn/product-detail.html?productCode=u0000000055711) | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
 | 478276 | [高级轻型羽绒便携式背心休闲羽绒马甲防静电防泼水](https://www.uniqlo.cn/product-detail.html?productCode=u0000000064819) | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
-| 478576 | [高级轻型羽绒便携式背心/轻暖便携羽绒马甲](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071455) | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
+| 479697 | [双面穿防风摇粒绒拉链连帽外套户外防水冬季](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065615)<br><sub>近30日观测新低 · 近90日观测新低</sub> | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
 | 480950 | [高级轻型羽绒便携式背心弧形压线外套羽绒服马甲防静电防泼水](https://www.uniqlo.cn/product-detail.html?productCode=u0000000062152)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000062152) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071476)</sub> | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
 | 482210 | [便携式防紫外线连帽外套](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074776) | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
 | 482432 | [法国麻条纹衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069773) | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
 | 482443 | [棉麻衬衫式茄克/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069867) | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
 | 482854 | [EZY DENIM牛仔裤/水洗产品](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074625) | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
-| 483868 | [法国麻衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075332)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075332) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075882)</sub> | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
+| 483868 | [法国麻衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075332) | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
 | 483869 | [法国麻条纹衬衫/长袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075333) | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
 | 484972 | [EZY DENIM牛仔裤/水洗产品](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067924) | 50.2% | ¥299 | ¥149 | 超值精选 | 男装 |
 | 485671 | [便携式防紫外线连帽外套](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076479)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076479) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074347)</sub> | 50.2% | ¥299 | ¥149 | 超值精选 | 女装 |
@@ -193,7 +196,6 @@
 | 486818 | [羊毛混纺短大衣](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075799) | 50.1% | ¥599 | ¥299 | 超值精选 | 男装 |
 | 478275 | [高级轻型羽绒便携式茄克/休闲夹克外套羽绒服防静电防泼水](https://www.uniqlo.cn/product-detail.html?productCode=u0000000062073) | 50.1% | ¥399 | ¥199 | 超值精选 | 男装 |
 | 480949 | [高级轻型羽绒便携式茄克/弧形压线外套夹克](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065272)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065272) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000071475)</sub> | 50.1% | ¥399 | ¥199 | 超值精选 | 男装 |
-| 483807 | [休闲短茄克/巴恩风外套夹克484664](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076544) | 50.1% | ¥399 | ¥199 | 超值精选 | 女装 |
 
 </details>
 
@@ -208,6 +210,7 @@
 | 482243 | [全棉舒适九分裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076536) | 47.0% | ¥149 | ¥79 | 超值精选 | 女装 |
 | 482246 | [麻混纺舒适长裤/休闲裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076317) | 47.0% | ¥149 | ¥79 | 超值精选 | 女装 |
 | 482758 | [宽松运动短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073957) | 47.0% | ¥149 | ¥79 | 超值精选 | 男装 |
+| 483007 | [棉莫代尔混纺圆领针织衫/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073956) | 47.0% | ¥149 | ¥79 | 超值精选 | 女装 |
 | 483877 | [牛仔箱型衬衫/半袖水洗产品](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069774)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069774) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073296)</sub> | 47.0% | ¥149 | ¥79 | 超值精选 | 女装 |
 | 483890 | [麻混纺衬衫/无袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074349)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074349) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070401)</sub> | 47.0% | ¥149 | ¥79 | 超值精选 | 女装 |
 | 483898 | [全棉舒适九分裤/加长款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076516) | 47.0% | ¥149 | ¥79 | 超值精选 | 女装 |
@@ -238,7 +241,6 @@
 | 480860 | [UT Pokémon印花短袖T恤宝可梦超级沙奈朵](https://www.uniqlo.cn/product-detail.html?productCode=u0000000063614) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 481257 | [HEATTECH针织帽子/毛线帽防寒保暖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000065833) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 481641 | [时尚太阳镜/金属双桥](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069843) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
-| 481642 | [时尚太阳镜/金属飞行员](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070672) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 481645 | [时尚太阳镜/平顶](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069821) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 481647 | [时尚太阳镜/双桥](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069841) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482295 | [AIRism宽松圆领T恤/5分袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000075497) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
@@ -246,13 +248,13 @@
 | 482646 | [棉质舒适短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074796) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 482648 | [舒适印花短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074799) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 482750 | [UT 泰特美术馆系列印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069515) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
-| 482751 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066898) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482752 | [UT NY POP ART印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066696) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482754 | [UT Yu Nagaba印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066890)<br><sub>同编号 2 个页面：[1](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066890) [2](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076320)</sub> | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 482760 | [AIRism棉混纺无袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076159) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 483261 | [UT CHIIKAWA印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000074281) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 483265 | [UT ZO＆FRIENDS/短袖](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073177) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 483271 | [UT MAGIC FOR ALL印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067133) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
+| 484121 | [UT miffy印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067615) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 484475 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066513) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 484477 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069559) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 484478 | [UT PEANUTS印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000069534) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
@@ -267,7 +269,6 @@
 | 485043 | [UT MAGIC FOR ALL印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067113) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485045 | [UT MAGIC FOR ALL印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067135) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485065 | [UT NY POP ART印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066693) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
-| 485068 | [UT NY POP ART印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000066714) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
 | 485164 | [UT mofusand印花T恤/短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070654) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 485251 | [麻混纺舒适短裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070399) | 40.4% | ¥99 | ¥59 | 超值精选 | 女装 |
 | 485253 | [UT ZOOTOPIA印花短袖T恤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067475) | 40.4% | ¥99 | ¥59 | 超值精选 | 男装 |
@@ -319,6 +320,7 @@
 | 482285 | [棉麻打褶长裙](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070082) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
 | 482286 | [层叠长裙/加长款半身裙裙子](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070093) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
 | 482971 | [柔滑棉质POLO领针织衫/毛衣毛衫](https://www.uniqlo.cn/product-detail.html?productCode=u0000000067698) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
+| 484820 | [层叠长裙/半身裙裙子常规款](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070102) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
 | 486982 | [休闲长裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000073385) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
 | 487792 | [休闲工装裙](https://www.uniqlo.cn/product-detail.html?productCode=u0000000070104) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
 | 487959 | [弹力宽松长裤](https://www.uniqlo.cn/product-detail.html?productCode=u0000000076899) | 40.2% | ¥249 | ¥149 | 超值精选 | 女装 |
