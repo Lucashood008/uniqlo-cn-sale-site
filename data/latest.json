@@ -1,67 +1,58 @@
 {
-  "generated_at": "2026-11-24T17:50:08+08:00",
+  "generated_at": "2026-11-25T16:27:09+08:00",
   "deal_changes": {
     "version": 1,
-    "previous_generated_at": "2026-11-23T15:31:14+08:00",
-    "generated_at": "2026-11-24T17:50:08+08:00",
-    "drops": [
-      {
-        "item_code": "484249",
-        "product_code": "u0000000069556",
-        "name": "休闲拉链茄克",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069556",
-        "current_price": 199.0,
-        "previous_price": 299.0
-      },
-      {
-        "item_code": "488599",
-        "product_code": "u0000000075807",
-        "name": "绒面拉链茄克",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075807",
-        "current_price": 199.0,
-        "previous_price": 299.0
-      },
-      {
-        "item_code": "491096",
-        "product_code": "u0000000075036",
-        "name": "休闲拉链茄克",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075036",
-        "current_price": 199.0,
-        "previous_price": 299.0
-      },
-      {
-        "item_code": "487213",
-        "product_code": "u0000000075220",
-        "name": "休闲无褶长裤",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075220",
-        "current_price": 149.0,
-        "previous_price": 199.0
-      }
-    ],
+    "previous_generated_at": "2026-11-24T17:50:08+08:00",
+    "generated_at": "2026-11-25T16:27:09+08:00",
+    "drops": [],
     "first_seen": [],
     "returned": [
       {
-        "item_code": "482454",
-        "product_code": "u0000000069133",
-        "name": "宽松条纹衬衫/长袖",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069133",
+        "item_code": "479254",
+        "product_code": "u0000000066093",
+        "name": "souffle yarn舒芙蕾针织帽子",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000066093",
         "current_price": 59.0,
         "previous_price": null
       },
       {
-        "item_code": "484935",
-        "product_code": "u0000000069837",
-        "name": "时尚太阳镜/运动风方形",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069837",
+        "item_code": "483271",
+        "product_code": "u0000000067133",
+        "name": "UT MAGIC FOR ALL印花T恤/短袖T恤",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067133",
         "current_price": 59.0,
         "previous_price": null
       },
       {
-        "item_code": "480949",
-        "product_code": "u0000000071475",
-        "name": "高级轻型羽绒便携式茄克/弧形压线外套夹克",
-        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000071475",
-        "current_price": 199.0,
+        "item_code": "485256",
+        "product_code": "u0000000067753",
+        "name": "HEATTECH针织帽子",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067753",
+        "current_price": 59.0,
+        "previous_price": null
+      },
+      {
+        "item_code": "482308",
+        "product_code": "u0000000067415",
+        "name": "卫衣/长袖",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067415",
+        "current_price": 99.0,
+        "previous_price": null
+      },
+      {
+        "item_code": "479372",
+        "product_code": "u0000000065838",
+        "name": "弹力长裤/内里起毛休闲裤裤子常规款",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065838",
+        "current_price": 149.0,
+        "previous_price": null
+      },
+      {
+        "item_code": "484330",
+        "product_code": "u0000000069755",
+        "name": "男士女士休闲鞋",
+        "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069755",
+        "current_price": 149.0,
         "previous_price": null
       }
     ]
@@ -71,15 +62,15 @@
   "channel": "men",
   "counts": {
     "限时特优": 76,
-    "超值精选": 304
+    "超值精选": 308
   },
-  "total": 380,
-  "unique_items": 365,
-  "display_records": 188,
-  "display_items": 178,
+  "total": 384,
+  "unique_items": 367,
+  "display_records": 193,
+  "display_items": 180,
   "display_counts": {
     "限时特优": 0,
-    "超值精选": 178
+    "超值精选": 180
   },
   "products": [
     {
@@ -270,33 +261,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000066232/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000075001",
-      "item_code": "480739",
-      "name": "宽松廓形牛仔裤/弯刀镰刀裤子加长款",
-      "gender": "女装",
-      "sex": "女装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2025年秋季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 299.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 66.9,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075001",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075001/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000067373",
       "item_code": "482864",
       "name": "宽松直筒牛仔裤/水洗产品",
@@ -480,6 +444,33 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067254",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067254/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000069755",
+      "item_code": "484330",
+      "name": "男士女士休闲鞋",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2026年春季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 399.0,
+      "current_min_price": 149.0,
+      "current_max_price": 149.0,
+      "discount_percent": 62.7,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069755",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069755/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000074797",
@@ -912,33 +903,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067013/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000065216",
-      "item_code": "480023",
-      "name": "souffle yarn舒芙蕾针织开衫/长袖舒芙蕾毛衣毛衫",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2025年冬季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 249.0,
-      "current_min_price": 99.0,
-      "current_max_price": 99.0,
-      "discount_percent": 60.2,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065216",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000065216/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000067334",
       "item_code": "482876",
       "name": "修身无褶长裤",
@@ -1286,6 +1250,33 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069778/main/first/561/1.jpg"
     },
     {
+      "product_code": "u0000000067753",
+      "item_code": "485256",
+      "name": "HEATTECH针织帽子",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2025年冬季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 129.0,
+      "current_min_price": 59.0,
+      "current_max_price": 59.0,
+      "discount_percent": 54.3,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067753",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067753/main/first/561/1.jpg"
+    },
+    {
       "product_code": "u0000000069629",
       "item_code": "485454",
       "name": "宽松撞色T恤/短袖",
@@ -1474,6 +1465,33 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000070513/main/first/561/1.jpg"
     },
     {
+      "product_code": "u0000000065213",
+      "item_code": "479235",
+      "name": "souffle yarn舒芙蕾圆领针织衫/长袖舒芙蕾毛衣毛衫",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2025年冬季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 199.0,
+      "current_min_price": 99.0,
+      "current_max_price": 99.0,
+      "discount_percent": 50.3,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065213",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000065213/main/first/561/1.jpg"
+    },
+    {
       "product_code": "u0000000065153",
       "item_code": "479974",
       "name": "牛津纺箱型衬衫/长袖衬衣空调衫合作款",
@@ -1553,6 +1571,33 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069814",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069814/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000067415",
+      "item_code": "482308",
+      "name": "卫衣/长袖",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2026年春季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 199.0,
+      "current_min_price": 99.0,
+      "current_max_price": 99.0,
+      "discount_percent": 50.3,
+      "sale_begin": "2026-03-20 08:00",
+      "sale_end": "2026-03-26 23:29",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067415",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067415/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000070952",
@@ -2146,6 +2191,33 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000073977/main/first/561/1.jpg"
     },
     {
+      "product_code": "u0000000075898",
+      "item_code": "487511",
+      "name": "DRY-EX速干高弹力防紫外线连帽开衫",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2026年夏季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 199.0,
+      "current_min_price": 99.0,
+      "current_max_price": 99.0,
+      "discount_percent": 50.3,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075898",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075898/main/first/561/1.jpg"
+    },
+    {
       "product_code": "u0000000076664",
       "item_code": "488439",
       "name": "休闲挎包",
@@ -2359,6 +2431,59 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000064819",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000064819/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000065838",
+      "item_code": "479372",
+      "name": "弹力长裤/内里起毛休闲裤裤子常规款",
+      "gender": "男装",
+      "sex": "男装",
+      "channels": [
+        "men"
+      ],
+      "season": "2025年冬季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 299.0,
+      "current_min_price": 149.0,
+      "current_max_price": 149.0,
+      "discount_percent": 50.2,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065838",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000065838/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000062152",
+      "item_code": "480950",
+      "name": "高级轻型羽绒便携式背心弧形压线外套羽绒服马甲防静电防泼水",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2025年冬季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 299.0,
+      "current_min_price": 149.0,
+      "current_max_price": 149.0,
+      "discount_percent": 50.2,
+      "sale_begin": "2026-02-06 00:00",
+      "sale_end": "2026-02-12 23:59",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000062152",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000062152/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000071476",
@@ -2763,7 +2888,7 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000062073/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000071475",
+      "product_code": "u0000000065272",
       "item_code": "480949",
       "name": "高级轻型羽绒便携式茄克/弧形压线外套夹克",
       "gender": "男装",
@@ -2783,11 +2908,11 @@
       "current_min_price": 199.0,
       "current_max_price": 199.0,
       "discount_percent": 50.1,
-      "sale_begin": "",
-      "sale_end": "",
+      "sale_begin": "2026-02-06 00:00",
+      "sale_end": "2026-02-12 23:59",
       "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000071475",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000071475/main/first/561/1.jpg"
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000065272",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000065272/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000076544",
@@ -3381,6 +3506,33 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000063591/main/first/561/1.jpg"
     },
     {
+      "product_code": "u0000000066093",
+      "item_code": "479254",
+      "name": "souffle yarn舒芙蕾针织帽子",
+      "gender": "女装",
+      "sex": "女装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2025年冬季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 99.0,
+      "current_min_price": 59.0,
+      "current_max_price": 59.0,
+      "discount_percent": 40.4,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000066093",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000066093/main/first/561/1.jpg"
+    },
+    {
       "product_code": "u0000000060821",
       "item_code": "480350",
       "name": "UT Pokémon印花T恤/短袖T恤宝可梦",
@@ -3813,6 +3965,33 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000076159/main/first/561/1.jpg"
     },
     {
+      "product_code": "u0000000067133",
+      "item_code": "483271",
+      "name": "UT MAGIC FOR ALL印花T恤/短袖T恤",
+      "gender": "男装",
+      "sex": "男装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2026年夏季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 99.0,
+      "current_min_price": 59.0,
+      "current_max_price": 59.0,
+      "discount_percent": 40.4,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067133",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067133/main/first/561/1.jpg"
+    },
+    {
       "product_code": "u0000000067492",
       "item_code": "484358",
       "name": "UT ZOOTOPIA印花短袖T恤",
@@ -3973,33 +4152,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000066895",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000066895/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000069837",
-      "item_code": "484935",
-      "name": "时尚太阳镜/运动风方形",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 99.0,
-      "current_min_price": 59.0,
-      "current_max_price": 59.0,
-      "discount_percent": 40.4,
-      "sale_begin": "2026-07-17 08:00",
-      "sale_end": "2026-07-23 23:59",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069837",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069837/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000066882",
@@ -4270,33 +4422,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000071496",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000071496/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000068833",
-      "item_code": "487463",
-      "name": "UT MAGIC FOR ALL印花T恤/短袖T恤",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年夏季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 99.0,
-      "current_min_price": 59.0,
-      "current_max_price": 59.0,
-      "discount_percent": 40.4,
-      "sale_begin": "2026-05-29 08:00",
-      "sale_end": "2026-06-04 23:59",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000068833",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000068833/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000072399",
@@ -5184,33 +5309,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000071056/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000075829",
-      "item_code": "488230",
-      "name": "SUPIMA COTTON长袖T恤",
-      "gender": "女装",
-      "sex": "女装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年秋季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 129.0,
-      "current_min_price": 79.0,
-      "current_max_price": 79.0,
-      "discount_percent": 38.8,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000075829",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000075829/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000064557",
       "item_code": "478118",
       "name": "法兰绒衬衫/长袖衬衣休闲纯棉薄外套",
@@ -5776,6 +5874,33 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000074543",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000074543/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000074553",
+      "item_code": "489061",
+      "name": "条纹POLO衫/长袖",
+      "gender": "女装",
+      "sex": "女装/男女同款",
+      "channels": [
+        "men",
+        "women"
+      ],
+      "season": "2026年秋季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 149.0,
+      "current_min_price": 99.0,
+      "current_max_price": 99.0,
+      "discount_percent": 33.6,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000074553",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000074553/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000066378",
@@ -6513,6 +6638,32 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000074999",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000074999/main/first/561/1.jpg"
+    },
+    {
+      "product_code": "u0000000069097",
+      "item_code": "482591",
+      "name": "平脚短裤/格子内裤",
+      "gender": "男装",
+      "sex": "男装",
+      "channels": [
+        "men"
+      ],
+      "season": "2026年春季",
+      "sale_type_keys": [
+        "concessional_rate"
+      ],
+      "sale_types": [
+        "超值精选"
+      ],
+      "original_price": 40.0,
+      "current_min_price": 29.0,
+      "current_max_price": 29.0,
+      "discount_percent": 27.5,
+      "sale_begin": "",
+      "sale_end": "",
+      "in_stock": true,
+      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000069097",
+      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000069097/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000069102",
@@ -7918,33 +8069,6 @@
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000074581/main/first/561/1.jpg"
     },
     {
-      "product_code": "u0000000073513",
-      "item_code": "491000",
-      "name": "UT Jason Polan卫衣/长袖",
-      "gender": "男装",
-      "sex": "男装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2026年秋季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 199.0,
-      "current_min_price": 149.0,
-      "current_max_price": 149.0,
-      "discount_percent": 25.1,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000073513",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000073513/main/first/561/1.jpg"
-    },
-    {
       "product_code": "u0000000073496",
       "item_code": "491002",
       "name": "UT Jason Polan卫衣/长袖",
@@ -8795,33 +8919,6 @@
       "in_stock": true,
       "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000067074",
       "image_url": "https://www.uniqlo.cn/hmall/test/u0000000067074/main/first/561/1.jpg"
-    },
-    {
-      "product_code": "u0000000077121",
-      "item_code": "479616",
-      "name": "仿羊羔绒摇粒绒休闲开衫/长袖",
-      "gender": "女装",
-      "sex": "女装/男女同款",
-      "channels": [
-        "men",
-        "women"
-      ],
-      "season": "2025年冬季",
-      "sale_type_keys": [
-        "concessional_rate"
-      ],
-      "sale_types": [
-        "超值精选"
-      ],
-      "original_price": 249.0,
-      "current_min_price": 199.0,
-      "current_max_price": 199.0,
-      "discount_percent": 20.1,
-      "sale_begin": "",
-      "sale_end": "",
-      "in_stock": true,
-      "url": "https://www.uniqlo.cn/product-detail.html?productCode=u0000000077121",
-      "image_url": "https://www.uniqlo.cn/hmall/test/u0000000077121/main/first/561/1.jpg"
     },
     {
       "product_code": "u0000000078208",
